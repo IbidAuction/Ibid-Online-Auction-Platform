@@ -42,14 +42,14 @@
             </nav>
             <div class="left-side-nav">
                 <img class="notification" src="images/notif.png" alt="">
-                <img class="profileimg" id="profilepic"  src="images/pic.jpg" alt="">
+                <img class="profileimg" id="profilepic"  src="profileimg" >
                 <div class="sub-menu" id="sub-menu">
                     <div class="user-info">
-                        <img src="<%= ((User)session.getAttribute("user")).getProfileImage()%>" class="profileimg" alt="eresystrfgbs">
+                        <img src="profileimg" class="profileimg">
                         <p>Firomsa Assefa</p>
                     </div>
                     <a class="user-settings" href="#">
-                        <img src="images/profile-fill.png" class="profileimg" alt="eresystrfgbs">
+                        <img src="images/material-symbols_settings.png" class="profileimg" >
                         <p class="seti">Edit Profile</p>
                         <p >></p>
                     </a>

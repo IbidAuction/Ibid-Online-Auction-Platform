@@ -45,6 +45,13 @@
 		<servlet-name>LogoutController</servlet-name>
 		<servlet-class>controller.LogoutController</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserProfile</display-name>
+		<servlet-name>UserProfile</servlet-name>
+		<servlet-class>controller.UserProfile</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterController</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -60,6 +67,10 @@
 	<servlet-mapping>
 		<servlet-name>LogoutController</servlet-name>
 		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserProfile</servlet-name>
+		<url-pattern>/profileimg</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>register.jsp</welcome-file>
