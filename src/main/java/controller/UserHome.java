@@ -1,13 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import beans.Item;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import service.ItemDAO;
 
 public class UserHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,6 +26,10 @@ public class UserHome extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
         if(sess.getAttribute("user") != null) {
+        	ItemDAO itemDAO = new ItemDAO();
+        	List<Item> items = itemDAO.getAll();
+        	request.setAttribute("items", items);
+        	System.out.println(items.size());
             RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/myhome.jsp");
             dis.forward(request, response);
         } else {

@@ -19,7 +19,8 @@ public class ItemDAO implements DAO<Item> {
         int result = 0;
         try {
             Connection con = DBService.openConnection();
-            String insert = "INSERT INTO auction.Items (title, description, itemImage, itemCondition, minIncrement, category, startPrice, seller_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            System.out.println("Connection opened successfully.");
+            String insert = "INSERT INTO auction.Item (title, description, itemImage, itemCondition, minIncrement, category, startPrice, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             ps = con.prepareStatement(insert);
             ps.setString(1, t.getTitle());
             ps.setString(2, t.getDescription());
@@ -30,6 +31,7 @@ public class ItemDAO implements DAO<Item> {
             ps.setInt(7, t.getStartPrice());
             ps.setInt(8, t.getSeller().getUserID());
             result = ps.executeUpdate();
+            System.out.println("Item added successfully. Rows affected: " + result);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -49,7 +51,8 @@ public class ItemDAO implements DAO<Item> {
         int result = 0;
         try {
             Connection con = DBService.openConnection();
-            String update = "UPDATE auction.Items SET title=?, description=?, itemImage=?, itemState=?, itemCondition=?, minIncrement=?, category=?, startPrice=?, isSold=?, soldDate=?, seller_id=?, buyer_id=? WHERE itemID=?";
+            System.out.println("Connection opened successfully.");
+            String update = "UPDATE auction.Item SET title=?, description=?, itemImage=?, Itemtate=?, itemCondition=?, minIncrement=?, category=?, startPrice=?, isSold=?, soldDate=?, sellerID=?, buyerID=? WHERE itemID=?";
             ps = con.prepareStatement(update);
             ps.setString(1, t.getTitle());
             ps.setString(2, t.getDescription());
@@ -65,6 +68,7 @@ public class ItemDAO implements DAO<Item> {
             ps.setInt(12, t.getBuyer() != null ? t.getBuyer().getUserID() : 0);
             ps.setInt(13, t.getItemID());
             result = ps.executeUpdate();
+            System.out.println("Item updated successfully. Rows affected: " + result);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -84,10 +88,12 @@ public class ItemDAO implements DAO<Item> {
         int result = 0;
         try {
             Connection con = DBService.openConnection();
-            String delete = "DELETE FROM auction.Items WHERE itemID=?";
+            System.out.println("Connection opened successfully.");
+            String delete = "DELETE FROM auction.Item WHERE itemID=?";
             ps = con.prepareStatement(delete);
             ps.setInt(1, id);
             result = ps.executeUpdate();
+            System.out.println("Item deleted successfully. Rows affected: " + result);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -103,12 +109,13 @@ public class ItemDAO implements DAO<Item> {
 
     @Override
     public List<Item> getAll() {
-        List<Item> items = new ArrayList<>();
+        List<Item> Item = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             Connection con = DBService.openConnection();
-            String query = "SELECT * FROM auction.Items";
+            System.out.println("Connection opened successfully.");
+            String query = "SELECT * FROM auction.Item";
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -117,7 +124,7 @@ public class ItemDAO implements DAO<Item> {
                 item.setTitle(rs.getString("title"));
                 item.setDescription(rs.getString("description"));
                 item.setItemImage(rs.getString("itemImage"));
-                item.setItemState(rs.getString("itemState"));
+                item.setItemState(rs.getString("ItemState"));
                 item.setItemCondition(rs.getString("itemCondition"));
                 item.setMinIncrement(rs.getInt("minIncrement"));
                 item.setCategory(rs.getString("category"));
@@ -127,13 +134,13 @@ public class ItemDAO implements DAO<Item> {
                 item.setSoldDate(rs.getDate("soldDate") != null ? new Date(rs.getDate("soldDate").getTime()) : null);
                 // Set seller and buyer information
                 User seller = new User();
-                seller.setUserID(rs.getInt("seller_id"));
+                seller.setUserID(rs.getInt("sellerID"));
                 item.setSeller(seller);
-                int buyerId = rs.getInt("buyer_id");
+                int buyerId = rs.getInt("buyerID");
                 if (buyerId != 0) {
                     item.setBuyer(new UserDAO().get(buyerId));
                 }
-                items.add(item);
+                Item.add(item);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,7 +154,7 @@ public class ItemDAO implements DAO<Item> {
                 e.printStackTrace();
             }
         }
-        return items;
+        return Item;
     }
 
     @Override
@@ -157,7 +164,8 @@ public class ItemDAO implements DAO<Item> {
         ResultSet rs = null;
         try {
             Connection con = DBService.openConnection();
-            String query = "SELECT * FROM auction.Items WHERE itemID=?";
+            System.out.println("Connection opened successfully.");
+            String query = "SELECT * FROM auction.Item WHERE itemID=?";
             ps = con.prepareStatement(query);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -167,7 +175,7 @@ public class ItemDAO implements DAO<Item> {
                 item.setTitle(rs.getString("title"));
                 item.setDescription(rs.getString("description"));
                 item.setItemImage(rs.getString("itemImage"));
-                item.setItemState(rs.getString("itemState"));
+                item.setItemState(rs.getString("Itemtate"));
                 item.setItemCondition(rs.getString("itemCondition"));
                 item.setMinIncrement(rs.getInt("minIncrement"));
                 item.setCategory(rs.getString("category"));
@@ -177,9 +185,9 @@ public class ItemDAO implements DAO<Item> {
                 item.setSoldDate(rs.getDate("soldDate") != null ? new Date(rs.getDate("soldDate").getTime()) : null);
                 // Set seller and buyer information
                 User seller = new User();
-                seller.setUserID(rs.getInt("seller_id"));
+                seller.setUserID(rs.getInt("sellerID"));
                 item.setSeller(seller);
-                int buyerId = rs.getInt("buyer_id");
+                int buyerId = rs.getInt("buyerID");
                 if (buyerId != 0) {
                     User buyer = new User();
                     buyer.setUserID(buyerId);
