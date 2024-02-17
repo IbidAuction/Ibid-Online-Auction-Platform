@@ -1,0 +1,112 @@
+.big-div{
+    position: fixed;
+    left: 200px;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-obj{
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 500px;
+    right: 20px;
+    align-items: center;
+}
+.category{
+    background-color: white;
+    width: 80px;
+    display: flex;
+    border: none;
+    padding: 13px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.search-input{
+    border: none;
+    padding: 15px;
+    display: flex;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.search-button{
+    background-color: rgb(72, 72, 72);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-left: -20px;
+    z-index: 1;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 100px;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.store{
+    padding-left: 500px;
+}
+
+
+.content{
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.inside{
+    margin: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+.image-obj{
+    width: 270px;
+    height: 270px;
+}
+
+
+.status,
+.person-name{
+    display: flex;
+    justify-content: space-around;
+}
+
+.view-profile-button{
+    background-color: rgb(38, 149, 255);
+    border: none;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    cursor: pointer ;
+}
+
+.view-profile-button:hover{
+    opacity: 0.7;
+}
+
+.view-profile-button:active{
+    opacity: 0.5;
+}

@@ -1,0 +1,130 @@
+body{
+    display: flex;
+    justify-content: space-between;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+nav{
+    background-color: white;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom:0;
+    display: block;
+}
+
+.header{
+    background-color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10 ;
+    padding: 15px;
+}
+
+
+.name-initials{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.admin-top-image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.notification-bell{
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 60px;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+}
+
+.dash-button{
+    margin-top: 50px;
+}
+
+
+.dash-button,
+.all-users-button,
+.banned-users,
+.profile,
+.logout-button{
+    background-color: white;
+    width:250px ;
+    border: none;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.dash-button img,
+.all-users-button img,
+.banned-users img,
+.profile img,
+.logout-button img{
+    margin-right: 10px;
+}
+.dash-button:hover,
+.all-users-button:hover,
+.banned-users:hover,
+.profile:hover,
+.logout-button:hover{
+    background-color: #e1f4fa;
+}
+.topics{
+    display: block;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 250px;
+    align-items: flex-start;
+}
+
+
+.graph-container {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bargraph,
+.pie-chart {
+    display: flex;
+    padding: 30px;
+    height: 500px;
+    margin-top: 50px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+    margin: 20px;
+    border-radius: 30px;
+    align-items: center;
+}

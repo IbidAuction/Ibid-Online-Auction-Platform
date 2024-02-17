@@ -1,0 +1,15 @@
+.search-result{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 100px;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.content{
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}

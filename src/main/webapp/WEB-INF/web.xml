@@ -2,19 +2,19 @@
 <display-name>ibidAuctionPlatform</display-name>
 	<context-param>
         <param-name>db.driver</param-name>
-        <param-value>org.mariadb.jdbc.Driver</param-value>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.url</param-name>
-	        <param-value>jdbc:mariadb://localhost:3306/auction</param-value>
+	        <param-value>jdbc:mysql://localhost:3306/auction</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.user</param-name>
-	        <param-value>firomsa</param-value>
+	        <param-value>samuel</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.password</param-name>
-	        <param-value>12345</param-value>
+	        <param-value>123456789</param-value>
 	</context-param>
 	<servlet>
 		<description>
@@ -74,4 +74,118 @@
 	<welcome-file-list>
 		<welcome-file>register.jsp</welcome-file>
 	</welcome-file-list>
-</web-app>
+
+
+	<servlet>
+		<servlet-name>listusers</servlet-name>
+		<servlet-class>controller.admin.Listusers</servlet-class>
+  </servlet>
+
+	<servlet-mapping>
+		<servlet-name>listusers</servlet-name>
+		<url-pattern>/listusers</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>changestate</servlet-name>
+		<servlet-class>controller.admin.changeuserstate</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>changestate</servlet-name>
+		<url-pattern>/changeState</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>listbanned</servlet-name>
+		<servlet-class>controller.admin.listbanned</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>listbanned</servlet-name>
+		<url-pattern>/listbanned</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>controller.admin.logout</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/adminlogout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>signin</servlet-name>
+		<servlet-class>controller.admin.useradminsignin</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>signin</servlet-name>
+		<url-pattern>/adminsignin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>dashboard</servlet-name>
+		<servlet-class>controller.admin.useradmindashboard</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dashboard</servlet-name>
+		<url-pattern>/adminDash</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>viewuserprofile</servlet-name>
+		<servlet-class>controller.admin.userprofile</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>viewuserprofile</servlet-name>
+		<url-pattern>/viewProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>adminprofile</servlet-name>
+		<servlet-class>controller.admin.useradminprofile</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>adminprofile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>searchUser</servlet-name>
+		<servlet-class>controller.admin.SearchUsers</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>searchUser</servlet-name>
+		<url-pattern>/SearchUser</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ListItems</servlet-name>
+		<servlet-class>controller.admin.ListItems</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListItems</servlet-name>
+		<url-pattern>/ListItems</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ListPending</servlet-name>
+		<servlet-class>controller.admin.ListPending</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListPending</servlet-name>
+		<url-pattern>/ListPending</url-pattern>
+	</servlet-mapping>
+	</web-app>

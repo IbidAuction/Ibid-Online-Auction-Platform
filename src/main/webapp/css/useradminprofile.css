@@ -1,0 +1,102 @@
+.center-div{
+margin-top: 70px;
+margin-left: 450px;
+padding-top: 100px;
+padding-left: 50px;
+margin-bottom: 200px;
+}
+
+
+.public-profile{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+.image-and-button{
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.image{
+    padding-right: 50px;
+}
+.admin-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding-top: 50px;
+    margin-right: 50px;
+}
+
+
+.buttons{
+    display: block;
+}
+
+.edit-profile,
+.delete-picture,
+.change-picture{
+    background-color: rgb(38, 149, 255);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: block;
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.edit-profile:hover,
+.delete-picture:hover,
+.change-picture:hover{
+    opacity: 0.7;
+}
+
+.edit-profile:active,
+.delete-picture:active,
+.change-picture:active{
+    opacity: 0.4;
+}
+
+
+.name{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.first-name-text,
+.last-name-text{
+    padding: 10px;
+    border-radius: 5px;
+    border-color: rgba(240, 233, 233, 0.507);
+    border-width: 2px;
+}
+
+.first-name,
+.last-name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 15px;
+}
+
+.email-input{
+    padding: 10px;
+    border-radius: 5px;
+    border-color: rgba(240, 233, 233, 0.507);
+    border-width: 2px;
+    width: 500px;
+    margin-bottom: 30px;
+}
+
