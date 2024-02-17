@@ -1,6 +1,7 @@
 package controller.user;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import beans.User;
 import jakarta.servlet.ServletException;
@@ -40,8 +41,8 @@ public class SigninServlet extends HttpServlet {
                 session.setAttribute("user", user);
                 response.sendRedirect("myhome");
             } else {
-            	request.setAttribute("error", "INVALID LOGIN INFORMATION");
-                request.getRequestDispatcher("signin.jsp").forward(request, response);
+                session.setAttribute("error", "wrong password or email please try again");
+                response.sendRedirect("signin");
             }
 	}
 

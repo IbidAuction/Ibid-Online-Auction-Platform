@@ -24,7 +24,7 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = request.getSession();
         if (session.getAttribute("user") != null) {
             session.invalidate();
-            response.sendRedirect("signin.jsp");
+            response.sendRedirect("signin");
         }
 	}
 

@@ -2,61 +2,67 @@
 <display-name>ibidAuctionPlatform</display-name>
 	<context-param>
         <param-name>db.driver</param-name>
-        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+        <param-value>org.mariadb.jdbc.Driver</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.url</param-name>
-	        <param-value>jdbc:mysql://localhost:3306/auction</param-value>
+	        <param-value>jdbc:mariadb://localhost:3306/auction</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.user</param-name>
-	        <param-value>samuel</param-value>
+	        <param-value>firomsa</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.password</param-name>
-	        <param-value>123456789</param-value>
+	        <param-value>12345</param-value>
 	</context-param>
+
+	<welcome-file-list>
+		<welcome-file>register</welcome-file>
+	</welcome-file-list>
 	<servlet>
-		<description>
-		</description>
-		<display-name>RegisterController</display-name>
 		<servlet-name>RegisterController</servlet-name>
-		<servlet-class>controller.RegisterController</servlet-class>
+		<servlet-class>controller.user.RegisterController</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
-		<display-name>SigninServlet</display-name>
 		<servlet-name>SigninServlet</servlet-name>
-		<servlet-class>controller.SigninServlet</servlet-class>
+		<servlet-class>controller.user.SigninServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
-		<display-name>UserHome</display-name>
 		<servlet-name>UserHome</servlet-name>
-		<servlet-class>controller.UserHome</servlet-class>
+		<servlet-class>controller.user.UserHome</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
-		<display-name>LogoutController</display-name>
 		<servlet-name>LogoutController</servlet-name>
-		<servlet-class>controller.LogoutController</servlet-class>
+		<servlet-class>controller.user.LogoutController</servlet-class>
 	</servlet>
 	<servlet>
-		<description>
-		</description>
-		<display-name>UserProfile</display-name>
 		<servlet-name>UserProfile</servlet-name>
-		<servlet-class>controller.UserProfile</servlet-class>
+		<servlet-class>controller.user.UserProfile</servlet-class>
 	</servlet>
+	<servlet>
+        <servlet-name>registerjsp</servlet-name>
+        <jsp-file>/register.jsp</jsp-file>
+    </servlet>
+	<servlet>
+        <servlet-name>signinjsp</servlet-name>
+        <jsp-file>/signin.jsp</jsp-file>
+    </servlet>
+
 	<servlet-mapping>
 		<servlet-name>RegisterController</servlet-name>
+		<url-pattern>/registeruser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>registerjsp</servlet-name>
 		<url-pattern>/register</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SigninServlet</servlet-name>
+		<url-pattern>/signinuser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>signinjsp</servlet-name>
 		<url-pattern>/signin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
@@ -71,9 +77,7 @@
 		<servlet-name>UserProfile</servlet-name>
 		<url-pattern>/profileimg</url-pattern>
 	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>register.jsp</welcome-file>
-	</welcome-file-list>
+	
 
 
 	<servlet>

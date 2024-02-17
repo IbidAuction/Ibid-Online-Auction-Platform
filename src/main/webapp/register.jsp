@@ -15,7 +15,7 @@
                 <div class=”alert-danger”>
     				<%= Objects.toString(request.getAttribute("error"), " ")%>
 				</div>
-                <form method="post" action="register" enctype="multipart/form-data">
+                <form method="post" action="registeruser" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="firstname"><img src="images/iconamoon_profile-fill.png"></label>
                         <input type="text" name="firstname" id="firstname" placeholder="First Name" required/>
@@ -55,7 +55,7 @@
             </div>
             <div class="signup-image">
                 <img src="images/logo-ibid.png" alt="sing up image">
-                <a href="signin.jsp" class="link">I am already member</a>
+                <a href="signin" class="link">I am already member</a>
             </div>
     </div>
     

@@ -12,10 +12,12 @@
     <div class="container">
             <div class="signup-form">
                 <h2 class="form-title">Sign in</h2>
-                <div class=”alert-danger”>
-    				<%= Objects.toString(request.getAttribute("error"), " ")%>
-				</div>
-                <form method="POST" action="signin">
+                <% String errorMessage = (String) request.getSession().getAttribute("error"); %>
+                <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+                    <p style="color: red;"><%= errorMessage %></p>
+                    <% request.getSession().removeAttribute("error");%>
+                <% } %>
+                <form method="POST" action="signinuser">
                     <div class="form-group">
                         <label for="email"><img src="images/ic_baseline-email.png"></label>
                         <input type="text" name="email" id="email" placeholder="example@xxx.com" required/>
@@ -32,7 +34,7 @@
             </div>
             <div class="signup-image">
                 <img src="images/logo-ibid.png" alt="sing in image">
-                <a href="register.jsp" class="link">Create new account</a>
+                <a href="register" class="link">Create new account</a>
             </div>
     </div>
     

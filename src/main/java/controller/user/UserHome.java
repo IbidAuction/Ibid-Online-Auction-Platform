@@ -30,10 +30,10 @@ public class UserHome extends HttpServlet {
         	List<Item> items = itemDAO.getAll();
         	request.setAttribute("items", items);
         	System.out.println(items.size());
-            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/myhome.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/myhome.jsp");
             dis.forward(request, response);
         } else {
-            response.sendRedirect("signin.jsp");
+            response.sendRedirect("signin");
         }
 	}
 

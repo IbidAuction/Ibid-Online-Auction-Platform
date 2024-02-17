@@ -69,7 +69,7 @@ public class RegisterController extends HttpServlet {
         }
         else {
         	request.setAttribute("error", "SOMETHING GOT WRONG PLEASE TRY AGAIN!!!");
-        	RequestDispatcher dis = request.getRequestDispatcher("register.jsp");
+        	RequestDispatcher dis = request.getRequestDispatcher("register");
         	dis.forward(request, response);
         }
 	}
