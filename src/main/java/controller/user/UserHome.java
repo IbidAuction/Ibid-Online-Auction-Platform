@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,7 +33,7 @@ public class UserHome extends HttpServlet {
             RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/myhome.jsp");
             dis.forward(request, response);
         } else {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("signin.jsp");
         }
 	}
 
