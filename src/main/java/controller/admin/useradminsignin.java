@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.Admin;
+import service.AdminDAO;
+
 public class useradminsignin extends HttpServlet{
 
     @Override
@@ -23,23 +26,31 @@ public class useradminsignin extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        HttpSession session = request.getSession(false);
-        String email = request.getParameter("login-email");
-        String password = request.getParameter("login-password");
-        String adminEmail = (String) session.getAttribute("AdminEmail");
-        if (adminEmail == null || adminEmail.equals("")){
-            System.out.println("pass" + email + password);
+        String email, password;
+        try{
+            System.out.println("new session");
+
+            password = request.getParameter("login-password");
+            email = request.getParameter("login-email");
+
             if (email.equals("") || password.equals("")){
                 response.sendRedirect("notfound.jsp");
             }else{
                 HttpSession addis = request.getSession();
                 addis.setAttribute("AdminEmail", email);
-                System.out.println("redirecting");
-                response.sendRedirect("userAdminDashboard.jsp");
+
+                Admin currAdmin = AdminDAO.getAdminByEmail(email);
+                String role = currAdmin.getRole();
+                System.out.println(role + " is role of admin");
+
+                if (role != null && role.equals("userAdmin")){
+                    response.sendRedirect("userAdminDashboard.jsp");
+                }else if(role != null && role.equals("itemAdmin")){
+                    response.sendRedirect("itemAdminDashboard.jsp");
+                }
             }
-        }else{
-            System.out.println("not");
-            response.sendRedirect("userAdminDashboard.jsp");
+        } catch (Exception ex){
+            ex.printStackTrace();
         }
     }
 }
