@@ -108,7 +108,8 @@ public class AdminDAO implements DAO<Admin> {
                 admin.setRole(rs.getString("role"));
                 admin.setEmail(rs.getString("email"));
                 admin.setPassword(rs.getString("password"));
-                admin.setRegisteredDate(new Date(rs.getDate("registeredDate").getTime()));
+                admin.setRegisteredDate(new Date(rs.getDate("registrationDate").getTime()));
+                admin.setPicture(rs.getString("picture"));
                 admins.add(admin);
             }
         } catch (SQLException e) {
@@ -145,7 +146,7 @@ public class AdminDAO implements DAO<Admin> {
                 admin.setRole(rs.getString("role"));
                 admin.setEmail(rs.getString("email"));
                 admin.setPassword(rs.getString("password"));
-                admin.setRegisteredDate(new Date(rs.getDate("registeredDate").getTime()));
+                admin.setRegisteredDate(new Date(rs.getDate("registrationDate").getTime()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -160,5 +161,20 @@ public class AdminDAO implements DAO<Admin> {
             }
         }
         return admin;
+    }
+
+    public static Admin getAdminByEmail(String Email) throws SQLException{
+        AdminDAO curr = new AdminDAO();
+        List<Admin>ad = curr.getAll();
+        Admin ret = new Admin();
+        for (Admin a : ad){
+            System.out.println(a.getEmail() + a.getEmail().equals(Email) + "email: " + Email);
+            if (a.getEmail().equals(Email)){
+
+                ret = a;
+                break;
+            }
+        }
+        return ret;
     }
 }

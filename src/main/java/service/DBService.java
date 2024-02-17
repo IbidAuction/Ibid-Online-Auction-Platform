@@ -15,6 +15,7 @@ public class DBService {
     
     public static Connection openConnection() {
         try {
+            System.out.println("driver " + DRIVER);
             Class.forName(DRIVER);
             System.out.println("beginning database connection...");
             Connection c = DriverManager.getConnection(URL, USER, PASSWORD);

@@ -10,6 +10,9 @@ public class Admin {
 	private String email;
 	private String password;
 	private Date registeredDate;
+	private String picture;
+	
+	
 	
 	public Admin() {
 		super();
@@ -76,6 +79,11 @@ public class Admin {
 		this.registeredDate = registeredDate;
 	}
 	
-	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 }
 

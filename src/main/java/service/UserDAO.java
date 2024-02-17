@@ -117,6 +117,7 @@ public class UserDAO implements DAO<User> {
                 user.setRegion(rs.getString("region"));
                 user.setPhone(rs.getString("phone"));
                 user.setProfileImage(rs.getString("profileImage"));
+                user.setUserStatus(rs.getString("userStatus"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -211,5 +212,68 @@ public class UserDAO implements DAO<User> {
             }
         }
         return user;
+    }
+
+    public static int changeState(User user){
+        try{
+            Connection con = DBService.openConnection();
+            String command;
+            System.out.println("current status: " + user.getUserStatus());
+            if (user.getUserStatus().equals("banned")){
+                command = "active";
+            } else {
+                command = "banned";
+            }
+            String query = "Update Users SET userStatus = ? where Email = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, command);
+            ps.setString(2, user.getEmail());
+            int status = ps.executeUpdate();
+            System.out.println("changeed state to: " + command);
+            con.close();
+            ps.close();
+            return status;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static User getUserbyEmail(String email) {
+        UserDAO curr = new UserDAO();
+        List<User> all = curr.getAll();
+        User user = null;
+        for (User i : all){
+            if (i.getEmail().equals(email)){
+                user = i;
+                break;
+            }
+        }
+        return user;
+    }
+
+    public static User getUserbyId(Integer id) {
+        UserDAO curr = new UserDAO();
+        List<User> all = curr.getAll();
+        User user = null;
+        for (User i : all){
+            if (i.getUserID() == id){
+                user = i;
+                break;
+            }
+        }
+        return user;
+    }
+
+    public static List<User>  getUserbyName(String name){
+        UserDAO curr = new UserDAO();
+        List<User>usersWithName = curr.getAll();
+        List<User>targetUsers = new ArrayList<User>();
+        for (User us : usersWithName){
+            if (us.getFirstName().equals(name)){
+                targetUsers.add(us);
+            }
+        }
+        return targetUsers;
     }
 }
