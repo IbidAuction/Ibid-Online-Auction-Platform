@@ -2,19 +2,19 @@
 <display-name>ibidAuctionPlatform</display-name>
 	<context-param>
         <param-name>db.driver</param-name>
-        <param-value>org.mariadb.jdbc.Driver</param-value>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.url</param-name>
-	        <param-value>jdbc:mariadb://localhost:3306/auction</param-value>
+	        <param-value>jdbc:mysql://localhost:3306/demo</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.user</param-name>
-	        <param-value>firomsa</param-value>
+	        <param-value>samuel</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.password</param-name>
-	        <param-value>12345</param-value>
+	        <param-value>123456789</param-value>
 	</context-param>
 
 	<welcome-file-list>
