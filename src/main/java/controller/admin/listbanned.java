@@ -18,14 +18,14 @@ public class listbanned extends HttpServlet{
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-        RequestDispatcher dispatcher = request.getRequestDispatcher("bannedusers.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin/bannedusers.jsp");
         HttpSession currSession = request.getSession(false);
 
         if( currSession != null){
             dispatcher.forward(request, response);
         }
         else{
-            response.sendRedirect("notfound.jsp");
+            response.sendRedirect("WEB-INF/admin/.jsp");
         }
     }
 }

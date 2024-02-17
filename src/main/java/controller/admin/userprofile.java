@@ -20,11 +20,11 @@ public class userprofile extends HttpServlet{
             String useremail =request.getParameter("user-email");
             System.out.println(useremail + " service");
             request.setAttribute("user-email", useremail);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin/profile.jsp");
             dispatcher.forward(request, response);    
         }
         else{
-            response.sendRedirect("notfound.jsp");
+            response.sendRedirect("WEB-INF/admin/notfound.jsp");
         }
     }
 }

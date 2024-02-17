@@ -20,11 +20,11 @@ public class useradminprofile extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession currSession = request.getSession(false);
         if (currSession != null){
-            RequestDispatcher rd = request.getRequestDispatcher("useradminprofile.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/useradminprofile.jsp");
             rd.forward(request, response);
         }
         else{
-            response.sendRedirect("notfound.jsp");
+            response.sendRedirect("WEB-INF/admin/notfound.jsp");
         }
     }
 }

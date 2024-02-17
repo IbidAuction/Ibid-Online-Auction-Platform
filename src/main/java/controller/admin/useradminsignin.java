@@ -2,6 +2,7 @@ package controller.admin;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,10 +18,10 @@ public class useradminsignin extends HttpServlet{
         HttpSession session = request.getSession(false);
         System.out.println("in do get");
         if (session == null){
-            response.sendRedirect("notfound.jsp");
+            response.sendRedirect("WEB-INF/admin/notfound.jsp");
         }
         else{
-            response.sendRedirect("userAdminDashboard.jsp");            
+            response.sendRedirect("WEB-INF/admin/userAdminDashboard.jsp");            
         }
     }
 
@@ -34,7 +35,7 @@ public class useradminsignin extends HttpServlet{
             email = request.getParameter("login-email");
 
             if (email.equals("") || password.equals("")){
-                response.sendRedirect("notfound.jsp");
+                response.sendRedirect("WEB-INF/admin/notfound.jsp");
             }else{
                 HttpSession addis = request.getSession();
                 addis.setAttribute("AdminEmail", email);
@@ -42,11 +43,15 @@ public class useradminsignin extends HttpServlet{
                 Admin currAdmin = AdminDAO.getAdminByEmail(email);
                 String role = currAdmin.getRole();
                 System.out.println(role + " is role of admin");
-
                 if (role != null && role.equals("userAdmin")){
-                    response.sendRedirect("userAdminDashboard.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/userAdminDashboard.jsp");
+                    rd.forward(request, response);
                 }else if(role != null && role.equals("itemAdmin")){
-                    response.sendRedirect("itemAdminDashboard.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/itemAdminDashboard.jsp");
+                    rd.forward(request, response);
+                }else{
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/notfound.jsp");
+                    rd.forward(request, response);
                 }
             }
         } catch (Exception ex){

@@ -14,11 +14,11 @@ public class SearchUsers extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession curr = request.getSession(false);
         if (curr != null){
-            RequestDispatcher rd = request.getRequestDispatcher("SearchUsers.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/SearchUsers.jsp");
             rd.forward(request, response);    
         }
         else{
-            response.sendRedirect("notfound.jsp");
+            response.sendRedirect("WEB-INF/admin/notfound.jsp");
         }
     }
 }
