@@ -175,7 +175,7 @@ public class ItemDAO implements DAO<Item> {
                 item.setTitle(rs.getString("title"));
                 item.setDescription(rs.getString("description"));
                 item.setItemImage(rs.getString("itemImage"));
-                item.setItemState(rs.getString("Itemtate"));
+                item.setItemState(rs.getString("itemState"));
                 item.setItemCondition(rs.getString("itemCondition"));
                 item.setMinIncrement(rs.getInt("minIncrement"));
                 item.setCategory(rs.getString("category"));
@@ -207,5 +207,31 @@ public class ItemDAO implements DAO<Item> {
             }
         }
         return item;
+    }
+
+    public Integer changeState(Item it){
+        Integer status;
+        try{
+            Connection con = DBService.openConnection();
+            String command;
+            System.out.println("current status: " + it.getItemState());
+            if (it.getItemState().equals("rejected")){
+                command = "approved";
+            } else {
+                command = "rejected";
+            }
+            String query = "Update Item SET itemState = ? where itemID = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, command);
+            ps.setInt(2, it.getItemID());
+            status = ps.executeUpdate();
+            System.out.println("changeed state to: " + command);
+            con.close();
+            ps.close();
+            return status;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

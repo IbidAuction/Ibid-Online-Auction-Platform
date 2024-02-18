@@ -246,4 +246,24 @@
 		<servlet-name>ListPending</servlet-name>
 		<url-pattern>/ListPending</url-pattern>
 	</servlet-mapping>
+
+	
+	<servlet>
+		<servlet-name>viewItemProfile</servlet-name>
+		<servlet-class>controller.admin.viewItemProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewItemProfile</servlet-name>
+		<url-pattern>/viewItemProfile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>changeItemstate</servlet-name>
+		<servlet-class>controller.admin.changeItemstate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>changeItemstate</servlet-name>
+		<url-pattern>/changeItemState</url-pattern>
+	</servlet-mapping>
+
 	</web-app>

@@ -1,9 +1,9 @@
-<%@page import="service.UserDAO"%>
 <%@page import="java.util.List" %>
 <%@page import="java.util.ArrayList" %>
 <%@page import="beans.User"%>
 <%@page import="beans.Admin"%>
-<%@page import="service.AdminDAO"%>
+<%@page import="beans.Item"%>
+<%@page import="service.ItemDAO"%>
 <%@page import="jakarta.servlet.http.HttpSession"%>
 
 
@@ -23,39 +23,41 @@
         if (check == null || check.equals("")){ %>
             <h1>Page not found</h1> 
         <% } else { %>
-        <jsp:include page="adminheader.jsp" />
+        <jsp:include page="ItemAdminheader.jsp" />
         <div class="big-div">
             <form>
                 <div class="search-obj">
                     <div class="category"><span>Category &#x25BC;</span></div>
-                    <input type="text" placeholder="Search Users..." class="search-input">
+                    <input type="text" placeholder="Search Items..." class="search-input">
                     <button type="submit" class="search-button">Search</button>
                 </div>
             </form>
 
             <%-- the following code gets all users from the database --%>
             <% 
-                List<User>al = new ArrayList<>();
-                UserDAO currDAO = new UserDAO();
+                List<Item>al = new ArrayList<>();
+                ItemDAO currDAO = new ItemDAO();
                 al = currDAO.getAll();
             %>
 
             <div >
                 <div class="user-list">
-                    <% for (User user: al) { %>
+                    <% for (Item item: al) { %>
                         <div class="content">
                             <div class="inside">
                                 <form action="viewItemProfile" method="POST">
-                                    <input type="hidden" name="user-email" value="<%=user.getEmail()%>">
-                                    <img src="<%=user.getProfileImage()%>" class="image-obj">
-                                    <p class="person-name"> <%=user.getFirstName()%> <%=user.getLastName()%></p>
-                                    <% String status =user.getUserStatus();
-                                        if (status.equals("active")){ %>
+                                    <input type="hidden" name="Item-id" value="<%=item.getItemID()%>">
+                                    <img src=<%=item.getItemImage()%> class="image-obj">
+                                    <p class="person-name"> <%=item.getTitle()%></p>
+                                    <% String status =item.getItemState();
+                                        if (status.equals("approved")){ %>
                                             <p class="status" style="color:green;"><%=status%></p>
-                                        <% } else{ %>
+                                        <% } else if (status.equals("pending")) { %>
+                                            <p class="status" style="color:orange;"><%=status%></p>
+                                        <% } else { %>
                                             <p class="status" style="color:red;"><%=status%></p>
                                         <% } %>
-                                        <button type="submit" class="view-profile-button">View profile</button>
+                                        <button type="submit" class="view-profile-button">View Item</button>
                                 </form>
                             </div>
                         </div>
