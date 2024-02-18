@@ -1,3 +1,5 @@
+
+
 *,*::after,*::before{
     box-sizing: border-box;
 }
@@ -79,11 +81,14 @@ nav{
     display: flex;
     gap: 3rem;
 }
-main{
+.content{
     display: grid;
     grid-template-columns: 1fr 3fr;
+}
+.content-wrap{
     margin: 3rem 3rem 6rem 3rem;
     gap: 3rem;
+    min-height: 70rem;
 }
 .product-container{
     height: fit-content;
@@ -133,6 +138,7 @@ footer{
     margin-top: 1rem;
 }
 nav a{
+    background-color: rgb(38, 149, 255);
     text-decoration: none;
     color: white;
     font-size: 1.4rem;
@@ -270,5 +276,27 @@ span{
 }
 .seti{
     flex-grow: 1;
+}
+.upcoming, .active-auctions, .pending-approval{
+    min-height: 20rem;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0,0,0,0.2);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+.actions{
+    height: 5rem;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0,0,0,0.2);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+table{
+    width: 100%;
+    border: 1px solid rgb(38, 149, 255);
+    border-radius: 2px;
 }
 

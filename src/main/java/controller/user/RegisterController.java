@@ -56,7 +56,7 @@ public class RegisterController extends HttpServlet {
             }
 
         Part part= request.getPart("image");	
-        String fileName=extractFileName(part);
+        String fileName = extractFileName(part);
         User user = new User(firstname, lastname, email, password, city, phone, region, null);
         if(!fileName.equals("")) {
         	String path = savePath + File.separator +fileName;

@@ -32,21 +32,22 @@
         </div>
         <div class="navigation-bar">
             <nav>
-                <a href="">Shop</a>
-                <a href="">My Items</a>
-                <a href="">My Bids</a>
-                <a href="">My Deals</a>
-                <a href="">Feedback</a>
+                <a href="nav?name=myhome">Shop</a>
+                <a href="nav?name=items">My Items</a>
+                <a href="nav?name=bids">My Bids</a>
+                <a href="nav?name=deals">My Deals</a>
+                <a href="nav?name=feedback">Feedback</a>
             </nav>
             <div class="left-side-nav">
-                <img class="notification" src="images/notif.png" alt="">
+                <a href="nav?name=notification"> <img class="notification" src="images/notif.png" alt=""></a>
                 <img class="profileimg" id="profilepic"  src="profileimg" >
                 <div class="sub-menu" id="sub-menu">
                     <div class="user-info">
                         <img src="profileimg" class="profileimg">
-                        <p>Firomsa Assefa</p>
+                        <% User user = (User)request.getSession().getAttribute("user");%>
+                        <p><%=user.getFirstName()%> <%=user.getLastName()%></p>
                     </div>
-                    <a class="user-settings" href="#">
+                    <a class="user-settings" href="nav?name=profile">
                         <img src="images/material-symbols_settings.png" class="profileimg" >
                         <p class="seti">Edit Profile</p>
                         <p >></p>

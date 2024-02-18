@@ -1,6 +1,5 @@
 var clicked = false;
 let profilepic = document.getElementById("profilepic");
-console.log(profilepic);
 profilepic.addEventListener("click",function(){
     console.log("clicked");
     if(clicked){

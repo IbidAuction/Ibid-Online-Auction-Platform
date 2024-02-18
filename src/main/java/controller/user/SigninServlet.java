@@ -1,7 +1,6 @@
 package controller.user;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 
 import beans.User;
 import jakarta.servlet.ServletException;

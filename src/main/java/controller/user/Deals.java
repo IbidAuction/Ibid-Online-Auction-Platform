@@ -12,10 +12,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import service.ItemDAO;
 
-public class UserHome extends HttpServlet {
+public class Deals extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
-    public UserHome() {
+    public Deals() {
         super();
     }
 
@@ -30,7 +30,7 @@ public class UserHome extends HttpServlet {
         	List<Item> items = itemDAO.getAll();
         	request.setAttribute("items", items);
         	System.out.println(items.size());
-            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/myhome.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/deals.jsp");
             dis.forward(request, response);
         } else {
             response.sendRedirect("signin");

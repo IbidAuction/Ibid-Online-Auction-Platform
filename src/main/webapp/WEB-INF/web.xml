@@ -2,19 +2,19 @@
 <display-name>ibidAuctionPlatform</display-name>
 	<context-param>
         <param-name>db.driver</param-name>
-        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+        <param-value>org.mariadb.jdbc.Driver</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.url</param-name>
-	        <param-value>jdbc:mysql://localhost:3306/demo</param-value>
+	        <param-value>jdbc:mariadb://localhost:3306/auction</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.user</param-name>
-	        <param-value>samuel</param-value>
+	        <param-value>firomsa</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.password</param-name>
-	        <param-value>123456789</param-value>
+	        <param-value>12345</param-value>
 	</context-param>
 
 	<welcome-file-list>
@@ -33,12 +33,40 @@
 		<servlet-class>controller.user.UserHome</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>items</servlet-name>
+		<servlet-class>controller.user.MyItems</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>feedback</servlet-name>
+		<servlet-class>controller.user.FeedBack</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>bids</servlet-name>
+		<servlet-class>controller.user.Bids</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>deals</servlet-name>
+		<servlet-class>controller.user.Deals</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>LogoutController</servlet-name>
 		<servlet-class>controller.user.LogoutController</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>UserProfile</servlet-name>
+		<servlet-name>UserProfileimg</servlet-name>
 		<servlet-class>controller.user.UserProfile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>notification</servlet-name>
+		<servlet-class>controller.user.Notification</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>userprofile</servlet-name>
+		<servlet-class>controller.user.Profile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>navigate</servlet-name>
+		<servlet-class>controller.user.Navigate</servlet-class>
 	</servlet>
 	<servlet>
         <servlet-name>registerjsp</servlet-name>
@@ -74,11 +102,37 @@
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>UserProfile</servlet-name>
+		<servlet-name>UserProfileimg</servlet-name>
 		<url-pattern>/profileimg</url-pattern>
 	</servlet-mapping>
-	
-
+	<servlet-mapping>
+		<servlet-name>items</servlet-name>
+		<url-pattern>/myitems</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>bids</servlet-name>
+		<url-pattern>/mybids</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deals</servlet-name>
+		<url-pattern>/mydeals</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>feedback</servlet-name>
+		<url-pattern>/myfeedback</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>userprofile</servlet-name>
+		<url-pattern>/myprofile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>notification</servlet-name>
+		<url-pattern>/mynotification</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>navigate</servlet-name>
+		<url-pattern>/nav</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>listusers</servlet-name>
