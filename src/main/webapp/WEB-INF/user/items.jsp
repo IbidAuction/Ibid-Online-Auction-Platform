@@ -17,15 +17,18 @@
                 <h1>Active auctions</h1>
                 <table>
                     <thead>
-                        <th>name</th>
-                        <th>name</th>
-                        <th>name</th>
-                        <th>name</th>
-                        <th>name</th>
-                        <th>name</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Condition</th>
+                        <th>Category</th>
+                        <th>StartPrice</th>
+                        <th>CurrentPrice</th>
+                        <th>Registered Date</th>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>value</td>
                             <td>value</td>
                             <td>value</td>
                             <td>value</td>

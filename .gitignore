@@ -3,7 +3,6 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
-src/main/webapp/WEB-INF/web.xml
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
@@ -16,3 +15,4 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+src/main/webapp/WEB-INF/web.xml
