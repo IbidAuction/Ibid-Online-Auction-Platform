@@ -21,11 +21,9 @@
     <header class="header">
         <div class="name-initials">
             <% String email = (String) session.getAttribute("AdminEmail");
-                System.out.println("in dashboard" + email);
                 AdminDAO currDAO = new AdminDAO();
                 Admin currAdmin = currDAO.getAdminByEmail(email);
                 String picture = currAdmin.getPicture();
-                System.out.println("admin picture" + currAdmin.getPicture());
             %>
             <img src="<%=picture%>" class="admin-top-image"/>
             

@@ -24,7 +24,6 @@ public class Listusers extends HttpServlet{
 
         if (session != null){
             String adminemail = (String) session.getAttribute("AdminEmail");
-            System.out.println(adminemail + " list users servlet");
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin/Listusers.jsp");
             dispatcher.forward(request, response);    
         }

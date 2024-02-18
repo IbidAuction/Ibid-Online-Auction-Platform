@@ -29,10 +29,8 @@
         <% String Itemid = request.getParameter("Item-id");
             Integer id = Integer.parseInt(Itemid);
             ItemDAO currDAO = new ItemDAO();
-            System.out.println("id " + id);
-            Item it = currDAO.get(id); 
+            Item it = currDAO.get(id);      
             String status = it.getItemState();
-            System.out.println("status is " + status);
         %>
         <div class="big-div">
             <div class="picture-name">
@@ -43,15 +41,15 @@
                         <% if(status.equals("approved")) { %>
                             <p class="viewd-user-status" >Status: <span style="color:green;"><%=status%></span></p>
                         <% } else if (status.equals("pending")){ %>
-                            <p class="viewd-user-status" >Status: <span style="color:orange;"><%=status%></span></p>
+                            <p class="viewd-user-status">Status: <span style="color:orange;"><%=status%></span></p>
                         <% } else {%>
-                            <p class="viewd-user-status" >Status: <span style="color:red;"><%=status%></span></p>
+                            <p class="viewd-user-status">Status: <span style="color:red;"><%=status%></span></p>
                         <% } %>
                     </div>
                     <% if(status.equals("approved")) { %>
-                        <button class="ban-activate" style = "color:white; background-color:red" data-item-id="<%=it.getItemID()%>">Reject</button>
+                        <button class="ban-activate" style="color:white; background-color:red" data-item-id="<%=it.getItemID()%>" data-status="<%=status%>">Reject</button>
                     <% } else { %>
-                        <button class="ban-activate" style="color:white; background-color:green" data-item-id="<%=it.getItemID()%>">Approve</button>
+                        <button class="ban-activate" style="color:white; background-color:green" data-item-id="<%=it.getItemID()%>" data-status="<%=status%>">Approve</button>
                     <% } %>
                 </div>
             </div>
@@ -64,19 +62,20 @@
             $(document).ready(function() {
                 $('.ban-activate').on('click', function(){
                     var button = $(this);
-                    var userId = $(this).data('item-id');
+                    var Itemid = $(this).data('item-id');
+                    var status = $(this).data('status');
                     var newstatus= '';
 
-                    if($(this).css('background-color') === 'rgb(255, 0, 0)'){
-                        newstatus = 'rejected';
-                    } else{
+                    if (status !== "approved"){
                         newstatus = 'approved';
+                    } else{
+                        newstatus = 'rejected';
                     }
                     $.ajax({
                         url: 'changeItemState',
                         type: 'POST',
                         data: {
-                            ItemId : ItemId,
+                            ItemId : Itemid,
                             newstatus : newstatus
                         },
                         success: function(response){
@@ -89,7 +88,7 @@
                             }
                         },
                         error: function(){
-                            alert('An error occured. please try again later.');
+                            alert('An error occurred. please try again later.');
                         }
                     });
                 });

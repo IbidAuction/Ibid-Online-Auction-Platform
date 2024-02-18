@@ -36,10 +36,8 @@
             <%-- the following code gets all users from the database --%>
             <% 
                 List<User>al = new ArrayList<>();
-                System.out.println("connection established");
                 UserDAO currDAO = new UserDAO();
                 al = currDAO.getAll();
-                System.out.println(al.size());
             %>
 
             <div >

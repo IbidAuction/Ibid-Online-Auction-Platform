@@ -35,7 +35,6 @@
                 <div class="user-list">
                     <% for (User user: targetUsers) { %>
                         <div class="content">
-                            <% System.out.println(user.getProfileImage());%> 
                             <div class="inside">
                                 <form action="viewProfile" method="POST">
                                     <input type="hidden" name="user-email" value="<%=user.getEmail()%>">

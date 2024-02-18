@@ -214,8 +214,7 @@ public class ItemDAO implements DAO<Item> {
         try{
             Connection con = DBService.openConnection();
             String command;
-            System.out.println("current status: " + it.getItemState());
-            if (it.getItemState().equals("rejected")){
+            if (it.getItemState().equals("rejected") || it.getItemState().equals("pending")){
                 command = "approved";
             } else {
                 command = "rejected";
@@ -225,7 +224,6 @@ public class ItemDAO implements DAO<Item> {
             ps.setString(1, command);
             ps.setInt(2, it.getItemID());
             status = ps.executeUpdate();
-            System.out.println("changeed state to: " + command);
             con.close();
             ps.close();
             return status;

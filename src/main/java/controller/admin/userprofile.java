@@ -18,7 +18,6 @@ public class userprofile extends HttpServlet{
         HttpSession currSession = request.getSession(false);
         if (currSession != null){
             String useremail =request.getParameter("user-email");
-            System.out.println(useremail + " service");
             request.setAttribute("user-email", useremail);
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin/profile.jsp");
             dispatcher.forward(request, response);    

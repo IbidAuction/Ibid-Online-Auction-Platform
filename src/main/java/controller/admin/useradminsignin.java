@@ -16,7 +16,6 @@ public class useradminsignin extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         HttpSession session = request.getSession(false);
-        System.out.println("in do get");
         if (session == null){
             response.sendRedirect("WEB-INF/admin/notfound.jsp");
         }
@@ -42,7 +41,6 @@ public class useradminsignin extends HttpServlet{
 
                 Admin currAdmin = AdminDAO.getAdminByEmail(email);
                 String role = currAdmin.getRole();
-                System.out.println(role + " is role of admin");
                 if (role != null && role.equals("userAdmin")){
                     RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/userAdminDashboard.jsp");
                     rd.forward(request, response);
