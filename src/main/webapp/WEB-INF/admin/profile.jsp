@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/listuser.css">
     <link rel="stylesheet" href="css/userprofile.css">
     <script src="js/jquery-3.7.1.min.js"></script>
-    <title>User Admin</title>
+    <title>User Profile</title>
 </head>
 <body>
     <% HttpSession checksession = request.getSession(false);

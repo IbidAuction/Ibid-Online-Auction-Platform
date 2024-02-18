@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/listuser.css">
     <link rel="stylesheet" href="css/useradmindash.css">
-    <title>List Items</title>
+    <title>Pending Items</title>
 </head>
 <body>
     <% HttpSession checksession = request.getSession(false);
@@ -40,29 +40,23 @@
                 al = currDAO.getAll();
             %>
 
-            <div >
-                <div class="user-list">
-                    <% for (Item item: al) { %>
-                        <div class="content">
-                            <div class="inside">
-                                <form action="viewItemProfile" method="POST">
-                                    <input type="hidden" name="Item-id" value="<%=item.getItemID()%>">
-                                    <img src=<%=item.getItemImage()%> class="image-obj">
-                                    <p class="person-name"> <%=item.getTitle()%></p>
-                                    <% String status =item.getItemState();
-                                        if (status.equals("approved")){ %>
-                                            <p class="status" style="color:green;"><%=status%></p>
-                                        <% } else if (status.equals("pending")) { %>
-                                            <p class="status" style="color:orange;"><%=status%></p>
-                                        <% } else { %>
-                                            <p class="status" style="color:red;"><%=status%></p>
-                                        <% } %>
+            <div class="user-list">
+                <% for (Item item : al) { %>
+                    <% String status = item.getItemState();
+                        if (status.equals("pending")) { %>
+                            <div class="content">
+                                <div class="inside">
+                                    <form action="viewItemProfile" method="POST">
+                                        <input type="hidden" name="Item-id" value="<%=item.getItemID()%>">
+                                        <img src="<%=item.getItemImage()%>" class="image-obj">
+                                        <p class="person-name"> <%=item.getTitle()%></p>
+                                        <p class="status" style="color:orange;"><%=status%></p>
                                         <button type="submit" class="view-profile-button">View Item</button>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                     <% } %>
-                </div>
+                <% } %>
             </div>
         </div>
     <% } %>

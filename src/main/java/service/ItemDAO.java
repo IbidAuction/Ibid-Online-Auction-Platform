@@ -124,7 +124,7 @@ public class ItemDAO implements DAO<Item> {
                 item.setTitle(rs.getString("title"));
                 item.setDescription(rs.getString("description"));
                 item.setItemImage(rs.getString("itemImage"));
-                item.setItemState(rs.getString("ItemState"));
+                item.setItemState(rs.getString("itemState"));
                 item.setItemCondition(rs.getString("itemCondition"));
                 item.setMinIncrement(rs.getInt("minIncrement"));
                 item.setCategory(rs.getString("category"));

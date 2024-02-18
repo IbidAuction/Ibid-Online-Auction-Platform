@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/listuser.css">
     <script src="js/d3.js"></script>
     <script src="js/plot.js"></script>
-    <title>User Admin</title>
 </head>
 <body>
     <header class="header">

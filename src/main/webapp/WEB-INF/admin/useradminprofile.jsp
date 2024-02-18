@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/listuser.css">
     <link rel="stylesheet" href="css/useradmindash.css">
     <link rel="stylesheet" href="css/useradminprofile.css">
-    <title>User Admin</title>
+    <title>Admin Profile</title>
 </head>
 <body>
     <% HttpSession checksession = request.getSession(false);
@@ -18,12 +18,17 @@
         if (check == null || check.equals("")){ %>
             <h1>Page not found</h1> 
         <% } else { %>
-        <jsp:include page="adminheader.jsp" />
         <% String email = (String) session.getAttribute("AdminEmail");
             AdminDAO currDAO = new AdminDAO();
             Admin currAdmin = currDAO.getAdminByEmail(email);
             String picture = currAdmin.getPicture();
-        %>
+        if (currAdmin.getRole() == "userAdmin") { %>
+            <jsp:include page="adminheader.jsp" />
+        <% }else { %>
+            <jsp:include page="ItemAdminheader.jsp" />
+        <% } %>
+
+
         <div class="center-div">
             <p class="public-profile">Pubic Profile</p>
             <div class="image-and-button">
@@ -32,7 +37,6 @@
                 </div>
                 <div class="buttons">
                     <button class="change-picture">Change Picture</button>
-                    <button class="delete-picture">Delete Picture</button>
                 </div>
             </div>
 

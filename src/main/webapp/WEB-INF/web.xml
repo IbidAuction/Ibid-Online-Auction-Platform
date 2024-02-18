@@ -265,5 +265,13 @@
 		<servlet-name>changeItemstate</servlet-name>
 		<url-pattern>/changeItemState</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>viewItemadmindash</servlet-name>
+		<servlet-class>controller.admin.ItemadminDash</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewItemadmindash</servlet-name>
+		<url-pattern>/ItemadminDash</url-pattern>
+	</servlet-mapping>
 	</web-app>

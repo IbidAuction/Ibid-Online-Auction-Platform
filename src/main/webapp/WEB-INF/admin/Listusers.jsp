@@ -45,7 +45,7 @@
                     <% for (User user: al) { %>
                         <div class="content">
                             <div class="inside">
-                                <form action="viewItemProfile" method="POST">
+                                <form action="viewProfile" method="POST">
                                     <input type="hidden" name="user-email" value="<%=user.getEmail()%>">
                                     <img src="<%=user.getProfileImage()%>" class="image-obj">
                                     <p class="person-name"> <%=user.getFirstName()%> <%=user.getLastName()%></p>

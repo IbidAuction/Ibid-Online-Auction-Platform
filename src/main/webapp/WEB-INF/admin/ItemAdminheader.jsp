@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/listuser.css">
     <script src="js/d3.js"></script>
     <script src="js/plot.js"></script>
-    <title>User Admin</title>
 </head>
 <body>
     <header class="header">
@@ -32,7 +31,7 @@
         <form action="SearchItems" method="POST">
             <div class="search-obj">
                 <div class="category"><span>&#x1F50D;</span></div>
-                <input type="text" placeholder="Write First Name..." class="search-input" name = "search-user">
+                <input type="text" placeholder="Write firstword of item..." class="search-input" name = "search-user">
                 <button type="submit" class="search-button">Search</button>
             </div>
         </form>
@@ -42,7 +41,7 @@
         </div>
     </header>
     <nav class="nav">
-        <form action="adminsignin" method="POST">
+        <form action="ItemadminDash" method="POST">
             <button type="submit" class="dash-button" id="dash-id"><span><img src="images/application (1).png"/></span> <span>Dashboard</span></button>
         </form>
 
