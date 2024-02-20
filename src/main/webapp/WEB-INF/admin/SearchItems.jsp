@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/listuser.css">
         <link rel="stylesheet" href="css/useradmindash.css">
         <link rel="stylesheet" href="css/useradminprofile.css">
-        <title>User Admin</title>
+        <title>Item Admin</title>
     </head>
     <bodY>
         <% HttpSession checksession = request.getSession(false);
@@ -24,29 +24,31 @@
         if (check == null || check.equals("")){ %>
             <h1>Page not found</h1> 
         <% } else { %>
-            <jsp:include page="adminheader.jsp" />
+            <jsp:include page="ItemAdminheader.jsp" />
             <% 
-                String searchname = request.getParameter("search-user");
-                List<User>targetUsers = new ArrayList<>();
-                UserDAO currDAO = new UserDAO();
-                targetUsers = currDAO.getUserbyName(searchname);
+                String searchname = request.getParameter("search-item");
+                List<Item>targetItems = new ArrayList<>();
+                ItemDAO currDAO = new ItemDAO();
+                targetItems = currDAO.getItembyName(searchname);
             %>
             <div class="store" style="padding-left: 200px;">
                 <div class="user-list">
-                    <% for (User user: targetUsers) { %>
+                    <% for (Item item: targetItems) { %>
                         <div class="content">
                             <div class="inside">
-                                <form action="viewProfile" method="POST">
-                                    <input type="hidden" name="user-email" value="<%=user.getEmail()%>">
-                                    <img src=<%=user.getProfileImage()%> class="image-obj">
-                                    <p class="person-name"> <%=user.getFirstName()%> <%=user.getLastName()%></p>
-                                    <% String status =user.getUserStatus();
-                                        if (status.equals("active")){ %>
-                                            <p class="status" style="color:green;"><%=status%></p>
-                                        <% } else{ %>
-                                            <p class="status" style="color:red;"><%=status%></p>
-                                        <% } %>
-                                        <button type="submit" class="view-profile-button">View profile</button>
+                                <form action="viewItemProfile" method="POST">
+                                    <input type="hidden" name="Item-id" value="<%=item.getItemID()%>">
+                                    <img src=<%=item.getItemImage()%> class="image-obj">
+                                    <p class="person-name"> <%=item.getTitle()%></p>
+                                        <% String status =item.getItemState();
+                                            if (status.equals("approved")){ %>
+                                                <p class="status" style="color:green;"><%=status%></p>
+                                            <% } else if (status.equals("pending")) { %>
+                                                <p class="status" style="color:orange;"><%=status%></p>
+                                            <% } else { %>
+                                                <p class="status" style="color:red;"><%=status%></p>
+                                            <% } %>
+                                        <button type="submit" class="view-profile-button">View Item</button>
                                 </form>
                             </div>
                         </div>

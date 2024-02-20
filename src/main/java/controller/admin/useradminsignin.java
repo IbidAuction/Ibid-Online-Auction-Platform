@@ -62,13 +62,20 @@ public class useradminsignin extends HttpServlet{
                     else{
                         out.println("<script>alert('Incorrect Password')</script>");
                     }
+                }else if(role != null && role.equals("manager")){
+                    if (currAdmin.getPassword().equals(password)){
+                        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/ManagerDashboard.jsp");
+                        rd.forward(request, response);  
+                        return ;
+                    }else{
+                        out.println("<script>alert('Incorrect Password')</script>");
+                    }
                 }else{
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/notfound.jsp");
-                    rd.forward(request, response);
-                    return ;
-
+                        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/admin/notfound.jsp");
+                        rd.forward(request, response);
+                        return ;
+                    }
                 }
-            }
         } catch (Exception ex){
             ex.printStackTrace();
         }
