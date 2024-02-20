@@ -37,6 +37,10 @@
 		<servlet-class>controller.user.MyItems</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>additem</servlet-name>
+		<servlet-class>controller.user.AddItem</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>feedback</servlet-name>
 		<servlet-class>controller.user.FeedBack</servlet-class>
 	</servlet>
@@ -132,6 +136,10 @@
 	<servlet-mapping>
 		<servlet-name>navigate</servlet-name>
 		<url-pattern>/nav</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>additem</servlet-name>
+		<url-pattern>/additem</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

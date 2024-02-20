@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import beans.Item;
+import beans.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -25,14 +26,16 @@ public class MyItems extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
-        if(sess.getAttribute("user") != null) {
-        	ItemDAO itemDAO = new ItemDAO();
-        	List<Item> items = itemDAO.getAll();
-        	request.setAttribute("items", items);
-        	System.out.println(items.size() +"  items");
-            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/items.jsp");
-            dis.forward(request, response);
-        } else {
+		User user = (User)sess.getAttribute("user");
+		ItemDAO itemDAO = new ItemDAO();
+		List<Item> items = itemDAO.getAll();
+        if(user != null){ 
+			request.setAttribute("items", items);
+			System.out.println(items.size() +"  items");
+			RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/items.jsp");
+			dis.forward(request, response);
+        } 
+		else {
             response.sendRedirect("signin");
         }
 	}

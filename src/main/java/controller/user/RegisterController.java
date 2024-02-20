@@ -2,6 +2,7 @@ package controller.user;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import beans.User;
 import jakarta.servlet.RequestDispatcher;
@@ -56,7 +57,7 @@ public class RegisterController extends HttpServlet {
             }
 
         Part part= request.getPart("image");	
-        String fileName = extractFileName(part);
+        String fileName = (new Date()).toString();
         User user = new User(firstname, lastname, email, password, city, phone, region, null);
         if(!fileName.equals("")) {
         	String path = savePath + File.separator +fileName;
@@ -72,15 +73,5 @@ public class RegisterController extends HttpServlet {
         	RequestDispatcher dis = request.getRequestDispatcher("register");
         	dis.forward(request, response);
         }
-	}
-	private String extractFileName(Part part) {
-	    String contentDisp = part.getHeader("content-disposition");
-	    String[] items = contentDisp.split(";");
-	    for (String s : items) {
-	        if (s.trim().startsWith("filename")) {
-	            return s.substring(s.indexOf("=") + 2, s.length()-1);
-	        }
-	    }
-	    return "";
 	}
 }

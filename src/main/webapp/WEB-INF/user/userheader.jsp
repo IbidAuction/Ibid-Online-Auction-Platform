@@ -1,27 +1,9 @@
 <%@page import="java.util.Objects"%>
 <%@page import="beans.User"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBid</title>
-    <link rel="stylesheet" href="css/myhome.css" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
+<header>
         <div class="top-header">
             <img class="logo" src="images/logo-ibid.png" alt="">
             <div class="search">
-                <select name="" id="">
-                    <option value="">Category</option>
-                    <option value="">item-type</option>
-                    <option value="">item-type</option>
-                    <option value="">item-type</option>
-                </select>
                 <input class="search-bar" type="search">
                 <button><img class="search-img" src="images/search.png" alt=""></button>
             </div>
@@ -32,11 +14,11 @@
         </div>
         <div class="navigation-bar">
             <nav>
-                <a href="nav?name=myhome">Shop</a>
-                <a href="nav?name=items">My Items</a>
-                <a href="nav?name=bids">My Bids</a>
-                <a href="nav?name=deals">My Deals</a>
-                <a href="nav?name=feedback">Feedback</a>
+                <a href="nav?name=myhome" id="nav-1" >Shop</a>
+                <a href="nav?name=items" id="nav-2">My Items</a>
+                <a href="nav?name=bids" id="nav-3">My Bids</a>
+                <a href="nav?name=deals" id="nav-4">My Deals</a>
+                <a href="nav?name=feedback" id="nav-5">Feedback</a>
             </nav>
             <div class="left-side-nav">
                 <a href="nav?name=notification"> <img class="notification" src="images/notif.png" alt=""></a>

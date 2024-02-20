@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sign in</title>
+<title>Ibid</title>
 <link rel="stylesheet" href="css/login.css">
 </head>
 <body>

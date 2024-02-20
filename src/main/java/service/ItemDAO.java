@@ -20,7 +20,7 @@ public class ItemDAO implements DAO<Item> {
         try {
             Connection con = DBService.openConnection();
             System.out.println("Connection opened successfully.");
-            String insert = "INSERT INTO auction.Item (title, description, itemImage, itemCondition, minIncrement, category, startPrice, sellerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String insert = "INSERT INTO auction.Item (title, description, itemImage, itemCondition, minIncrement, category, startPrice, sellerID, auctionStartDate, auctionEndDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             ps = con.prepareStatement(insert);
             ps.setString(1, t.getTitle());
             ps.setString(2, t.getDescription());
@@ -30,6 +30,8 @@ public class ItemDAO implements DAO<Item> {
             ps.setString(6, t.getCategory());
             ps.setInt(7, t.getStartPrice());
             ps.setInt(8, t.getSeller().getUserID());
+            ps.setTimestamp(9, t.getAuctionStartDate());
+            ps.setTimestamp(10, t.getAuctionEndDate());
             result = ps.executeUpdate();
             System.out.println("Item added successfully. Rows affected: " + result);
         } catch (SQLException e) {
@@ -52,7 +54,7 @@ public class ItemDAO implements DAO<Item> {
         try {
             Connection con = DBService.openConnection();
             System.out.println("Connection opened successfully.");
-            String update = "UPDATE auction.Item SET title=?, description=?, itemImage=?, Itemtate=?, itemCondition=?, minIncrement=?, category=?, startPrice=?, isSold=?, soldDate=?, sellerID=?, buyerID=? WHERE itemID=?";
+            String update = "UPDATE auction.Item SET title=?, description=?, itemImage=?, Itemtate=?, itemCondition=?, minIncrement=?, category=?, startPrice=?, isSold=?, soldDate=?, sellerID=?, buyerID=? ,auctionStartDate=?, auctionEndDate=? WHERE itemID=?";
             ps = con.prepareStatement(update);
             ps.setString(1, t.getTitle());
             ps.setString(2, t.getDescription());
@@ -63,10 +65,12 @@ public class ItemDAO implements DAO<Item> {
             ps.setString(7, t.getCategory());
             ps.setInt(8, t.getStartPrice());
             ps.setBoolean(9, t.isSold());
-            ps.setDate(10, t.getSoldDate() != null ? new java.sql.Date(t.getSoldDate().getTime()) : null);
+            ps.setTimestamp(10, t.getSoldDate() != null ? t.getSoldDate() : null);
             ps.setInt(11, t.getSeller().getUserID());
             ps.setInt(12, t.getBuyer() != null ? t.getBuyer().getUserID() : 0);
             ps.setInt(13, t.getItemID());
+            ps.setTimestamp(14, t.getAuctionStartDate() != null ? t.getAuctionStartDate() : null);
+            ps.setTimestamp(15, t.getAuctionEndDate() != null ? t.getAuctionEndDate() : null);
             result = ps.executeUpdate();
             System.out.println("Item updated successfully. Rows affected: " + result);
         } catch (SQLException e) {
@@ -130,8 +134,10 @@ public class ItemDAO implements DAO<Item> {
                 item.setCategory(rs.getString("category"));
                 item.setStartPrice(rs.getInt("startPrice"));
                 item.setSold(rs.getBoolean("isSold"));
-                item.setRegisteredDate(new Date(rs.getDate("registeredDate").getTime()));
-                item.setSoldDate(rs.getDate("soldDate") != null ? new Date(rs.getDate("soldDate").getTime()) : null);
+                item.setRegisteredDate(rs.getTimestamp("registeredDate"));
+                item.setSoldDate(rs.getTimestamp("soldDate") != null ? rs.getTimestamp("soldDate") : null);
+                item.setAuctionStartDate(rs.getTimestamp("auctionStartDate") != null ? rs.getTimestamp("auctionStartDate") : null);
+                item.setAuctionEndDate(rs.getTimestamp("auctionEndDate") != null ? rs.getTimestamp("auctionEndDate") : null);
                 // Set seller and buyer information
                 User seller = new User();
                 seller.setUserID(rs.getInt("sellerID"));
@@ -181,8 +187,10 @@ public class ItemDAO implements DAO<Item> {
                 item.setCategory(rs.getString("category"));
                 item.setStartPrice(rs.getInt("startPrice"));
                 item.setSold(rs.getBoolean("isSold"));
-                item.setRegisteredDate(new Date(rs.getDate("registeredDate").getTime()));
-                item.setSoldDate(rs.getDate("soldDate") != null ? new Date(rs.getDate("soldDate").getTime()) : null);
+                item.setRegisteredDate(rs.getTimestamp("registeredDate"));
+                item.setSoldDate(rs.getTimestamp("soldDate") != null ? rs.getTimestamp("soldDate") : null);
+                item.setAuctionStartDate(rs.getTimestamp("auctionStartDate") != null ? rs.getTimestamp("auctionStartDate") : null);
+                item.setAuctionEndDate(rs.getTimestamp("auctionEndDate") != null ? rs.getTimestamp("auctionEndDate") : null);
                 // Set seller and buyer information
                 User seller = new User();
                 seller.setUserID(rs.getInt("sellerID"));

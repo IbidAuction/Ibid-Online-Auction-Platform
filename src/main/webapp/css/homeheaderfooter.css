@@ -1,0 +1,170 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    background-color: rgb(252, 252, 252);
+}
+p{
+    margin: 0;
+}
+header{
+    margin-bottom: 3rem;
+    height: 10rem;
+}
+footer{
+    padding: 3rem 3rem;
+    background-color: rgba(38, 149, 255,0.1);
+}
+.about-us{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: fit-content;
+    gap: 3rem;
+}
+
+.footer-title{
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.footer-content{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.footer-content p{
+    line-height: 3rem;
+}
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+nav a{
+    background-color: rgb(38, 149, 255);
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight:500;
+    padding: 0.5rem;
+}
+.left-side-nav{
+    height: 70%;
+    display: flex;
+    gap: 3rem;
+    position: relative;
+}
+.left-side-nav img{
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+.logo{
+    height: 40%;
+
+}
+.product-card img{
+    width: 100%;
+}
+.top-header{
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+    align-items: center;
+    margin: 1rem 3rem;
+    gap: 30rem;
+}
+.search{
+    flex-grow: 1;
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgb(0,0,0,0.1);
+    border-radius: 999rem;
+    background-color: white;
+}
+.search-bar{
+    flex-grow: 1;
+    height: 4rem;
+    border: none;
+    padding: 1rem;
+    border-radius: 999rem;
+}
+.search button{
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 999rem;
+    background-color: black;
+    border:none;
+}
+.search-img{
+    width: 100%;
+}
+.wishlist p{
+    font-size: 1.4rem;
+}
+.wish{
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.content-wrap{
+    margin: 3rem 3rem 6rem 3rem;
+    min-height: 80vh;
+}
+.navigation-bar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(38, 149, 255);
+    align-items: center;
+    padding: 0 3rem;
+    height: 40%;
+}
+nav{
+    display: flex;
+    gap: 3rem;
+}
+.profileimg{
+    clip-path: circle();
+}
+.sub-menu{
+    position: absolute;
+    width: 30rem;
+    top: 140%;
+    left: -20rem;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0,0,0,0.2);
+    padding: 0 2rem 0 2rem;
+    border-radius: 4px;
+    display: none;
+}
+.user-info{
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: solid 2px rgb(38, 149, 255);
+    padding: 1rem;
+}
+.user-settings{
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: black;
+}
+.seti{
+    flex-grow: 1;
+}
+.details{
+    border-left: 0.5rem solid rgb(38, 149, 255);
+    padding-left: 1rem;
+ }
