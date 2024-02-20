@@ -60,6 +60,8 @@ form{
     height: 5rem;
     border-radius: 3px;
     background-color: rgb(38, 149, 255);
+    border-color: rgb(38, 149, 255);
+    border-style: solid;
 }
 .form-title{
     font-size: xx-large;

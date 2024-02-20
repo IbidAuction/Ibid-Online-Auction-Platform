@@ -37,7 +37,6 @@ public class UserProfile extends HttpServlet {
             if (bytesRead != imageData.length) {
                 throw new IOException("Error reading image data");
             }
-
             response.setContentType("image/png"); // Adjust for image type
             response.setContentLength(imageData.length);
             response.getOutputStream().write(imageData);

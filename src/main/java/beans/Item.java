@@ -1,6 +1,6 @@
 package beans;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Item {
 	private int itemID;
@@ -13,18 +13,20 @@ public class Item {
 	private String category;
 	private int startPrice;
 	private boolean isSold;
-	private Date registeredDate;
-	private Date soldDate;
+	private Timestamp registeredDate;
+	private Timestamp auctionStartDate;
+	private Timestamp auctionEndDate;
+	private Timestamp soldDate;
 	private User seller;
 	private User buyer;
 	
 	public Item() {
 		super();
 	}
+	
 	public Item(int itemID, String title, String description, String itemImage, String itemState, String itemCondition,
-			int minIncrement, String category, int startPrice, boolean isSold, Date registeredDate, Date soldDate,
-			User seller, User buyer) {
-		super();
+			int minIncrement, String category, int startPrice, boolean isSold, Timestamp registeredDate,
+			Timestamp auctionStartDate, Timestamp auctionEndDate, Timestamp soldDate, User seller, User buyer) {
 		this.itemID = itemID;
 		this.title = title;
 		this.description = description;
@@ -36,22 +38,27 @@ public class Item {
 		this.startPrice = startPrice;
 		this.isSold = isSold;
 		this.registeredDate = registeredDate;
+		this.auctionStartDate = auctionStartDate;
+		this.auctionEndDate = auctionEndDate;
 		this.soldDate = soldDate;
 		this.seller = seller;
 		this.buyer = buyer;
 	}
-	public Item(String title, String description, String itemImage, String itemCondition, String category,
-			int startPrice, int minIncrement, User seller) {
-		super();
+
+	public Item(String title, String description, String itemImage, String itemCondition, int minIncrement,
+			String category, int startPrice, Timestamp auctionStartDate, Timestamp auctionEndDate, User seller) {
 		this.title = title;
 		this.description = description;
 		this.itemImage = itemImage;
 		this.itemCondition = itemCondition;
+		this.minIncrement = minIncrement;
 		this.category = category;
 		this.startPrice = startPrice;
-		this.minIncrement = minIncrement;
+		this.auctionStartDate = auctionStartDate;
+		this.auctionEndDate = auctionEndDate;
 		this.seller = seller;
 	}
+
 	public int getItemID() {
 		return itemID;
 	}
@@ -112,16 +119,16 @@ public class Item {
 	public void setSold(boolean isSold) {
 		this.isSold = isSold;
 	}
-	public Date getRegisteredDate() {
+	public Timestamp getRegisteredDate() {
 		return registeredDate;
 	}
-	public void setRegisteredDate(Date registeredDate) {
+	public void setRegisteredDate(Timestamp registeredDate) {
 		this.registeredDate = registeredDate;
 	}
-	public Date getSoldDate() {
+	public Timestamp getSoldDate() {
 		return soldDate;
 	}
-	public void setSoldDate(Date soldDate) {
+	public void setSoldDate(Timestamp soldDate) {
 		this.soldDate = soldDate;
 	}
 	public User getSeller() {
@@ -136,5 +143,27 @@ public class Item {
 	public void setBuyer(User buyer) {
 		this.buyer = buyer;
 	}
+	public Timestamp getAuctionStartDate() {
+		return auctionStartDate;
+	}
+	public void setAuctionStartDate(Timestamp auctionStartDate) {
+		this.auctionStartDate = auctionStartDate;
+	}
+	public Timestamp getAuctionEndDate() {
+		return auctionEndDate;
+	}
+	public void setAuctionEndDate(Timestamp auctionEndDate) {
+		this.auctionEndDate = auctionEndDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Item [itemID=" + itemID + ", title=" + title + ", description=" + description + ", itemImage="
+				+ itemImage + ", itemState=" + itemState + ", itemCondition=" + itemCondition + ", minIncrement="
+				+ minIncrement + ", category=" + category + ", startPrice=" + startPrice + ", isSold=" + isSold
+				+ ", registeredDate=" + registeredDate + ", auctionStartDate=" + auctionStartDate + ", auctionEndDate="
+				+ auctionEndDate + ", soldDate=" + soldDate + ", seller=" + seller + ", buyer=" + buyer + "]";
+	}
+	
 	
 }
