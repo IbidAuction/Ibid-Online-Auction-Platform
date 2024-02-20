@@ -146,6 +146,7 @@ public class AdminDAO implements DAO<Admin> {
                 admin.setRole(rs.getString("role"));
                 admin.setEmail(rs.getString("email"));
                 admin.setPassword(rs.getString("password"));
+                admin.setPicture(rs.getString("picture"));
                 admin.setRegisteredDate(new Date(rs.getDate("registrationDate").getTime()));
             }
         } catch (SQLException e) {

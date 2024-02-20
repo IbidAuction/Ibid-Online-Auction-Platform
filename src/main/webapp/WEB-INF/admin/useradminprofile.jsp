@@ -24,10 +24,11 @@
             String picture = currAdmin.getPicture();
         if (currAdmin.getRole().equals("userAdmin")) { %>
             <jsp:include page="adminheader.jsp" />
-        <% }else { %>
+        <% }else if (currAdmin.getRole().equals("itemAdmin")){ %>
             <jsp:include page="ItemAdminheader.jsp" />
+        <% } else { %>
+            <jsp:include page="Managerheader.jsp" />
         <% } %>
-
 
         <div class="center-div">
             <p class="public-profile">Pubic Profile</p>
