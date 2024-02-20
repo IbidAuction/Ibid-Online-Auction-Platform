@@ -232,4 +232,18 @@ public class ItemDAO implements DAO<Item> {
         }
         return 0;
     }
+
+    public List<Item> getItembyName(String name){
+        ItemDAO curr = new ItemDAO();
+        List<Item>all = curr.getAll();
+        List<Item>store = new ArrayList<>();
+
+        for (Item it : all){
+            if (it.getTitle().toLowerCase().equals(name.toLowerCase())){
+                store.add(it);
+            }
+        }
+        return store;
+
+    }
 }

@@ -274,4 +274,30 @@
 		<servlet-name>viewItemadmindash</servlet-name>
 		<url-pattern>/ItemadminDash</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>changeAdminPicture</servlet-name>
+		<servlet-class>controller.admin.changeAdminPicture</servlet-class>
+		<multipart-config>
+			<location>/home/samuel/Desktop/Ibid-Online-Auction-Platform/src/main/webapp/images/adminimage</location>
+			<max-file-size>20848820</max-file-size>
+			<max-request-size>418018841</max-request-size>
+			<file-size-threshold>1048576</file-size-threshold>
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>changeAdminPicture</servlet-name>
+		<url-pattern>/changeAdminPicture</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditAdminProfile</servlet-name>
+		<servlet-class>controller.admin.EditAdminProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditAdminProfile</servlet-name>
+		<url-pattern>/EditAdminProfile</url-pattern>
+	</servlet-mapping>
 	</web-app>
+
+
