@@ -33,6 +33,7 @@ hr{
 }
 table{
     width: 100%;
+    text-align: center;
 }
 thead{
     background-color: rgb(38, 149, 255);
@@ -108,4 +109,8 @@ th,td{
     border-radius: 1rem;
     border-style: solid;
     color: white;
+}
+td img{
+    width:100%;
+    height:auto;
 }

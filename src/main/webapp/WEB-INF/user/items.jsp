@@ -76,13 +76,16 @@
                             <th>Category</th>
                         </thead>
                         <tbody>
+                            <c:forEach var="item" items="${pendings}">
                             <tr>
-                                <td>value</td>
-                                <td><img src="" alt=""></td>
-                                <td>value</td>
-                                <td>value</td>
-                                <td>value</td>
+                                <td>"${item.title}"</td>
+                                <td><img src="itemimage?name=${item.itemID}" alt=""></td>
+                                <td>"${item.startPrice}"</td>
+                                <td>"${item.minIncrement}"</td>
+                                <td>"${item.itemCondition}"</td>
+                                <td>"${item.category}"</td>
                             </tr>
+                            </c:forEach>
                         </tbody>
                     </table> 
                 </div>

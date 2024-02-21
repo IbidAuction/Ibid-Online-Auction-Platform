@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import beans.Item;
 import beans.User;
@@ -65,7 +66,7 @@ public class AddItem extends HttpServlet {
 
         // File upload
             Part part = request.getPart("itemImage");
-            String fileName = System.currentTimeMillis() + "_" + part.getSubmittedFileName();
+            String fileName = (new Date()).toString();
             String path = savePath + File.separator + fileName;
             part.write(path);
 

@@ -29,20 +29,20 @@
                 <div class="sidebar-element">
                     <p class="sidebar-title">Catagories</p>
                     <div class="list">
-                        <button class="active">Category</button>
-                        <button class="">Category</button>
-                        <button class="">Category</button>
-                        <button class="">Category</button>
-                        <button class="">Category</button>
-                        <button class="">Category</button>
-                        <button class="">Category</button>
+                        <button class="">Electronics</button>
+                        <button class="">Clothing</button>
+                        <button class="">Books</button>
+                        <button class="">Toys</button>
+                        <button class="">Furniture</button>
+                        <button class="">Sports</button>
+                        <button class="">Other</button>
                     </div>
                 </div>
             </div>
             <div class="product-container">
                 <c:forEach var="item" items="${items}">
                 <div class="product-card">
-                    <img src="images/laptop.jpg" alt="">
+                    <img src="itemimage?name=${item.itemID}" alt="">
                     <div class="time-left">
                         <p class="time-left-title">Time Left</p>
                         <div class="countdown">
@@ -66,9 +66,9 @@
                     </div>
                     <div class="">
                         <p class="item-title">"${item.title}"</p>
-                        <p class="discription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, assumenda dolore in vel nemo sunt reiciendis</p>
+                        <p class="discription">"${item.description}"</p>
                     </div>
-                    <p class="bid-current">Current Bid: <span>$20</span></p>
+                    <p class="bid-current">Current price: <span>$"${item.startPrice}"</span></p>
                     <a href="#" class="card-link"></a>
                     <button class="add-to-wishlist"><img src="images/add-to-wish.png" alt=""></button>
                 </div>

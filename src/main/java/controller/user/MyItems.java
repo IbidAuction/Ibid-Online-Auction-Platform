@@ -1,7 +1,10 @@
 package controller.user;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import beans.Item;
 import beans.User;
@@ -28,10 +31,23 @@ public class MyItems extends HttpServlet {
 		HttpSession sess = request.getSession();
 		User user = (User)sess.getAttribute("user");
 		ItemDAO itemDAO = new ItemDAO();
-		List<Item> items = itemDAO.getAll();
         if(user != null){ 
-			request.setAttribute("items", items);
-			System.out.println(items.size() +"  items");
+			List<Item> items = itemDAO.getAll();
+			List<Item> pendings = items.stream().filter(s->(s.getSeller().getUserID()==user.getUserID())
+			                                                &&(s.getItemState().equals("pending")))
+															.collect(Collectors.toList());
+			List<Item> upcomings  = items.stream().filter(s->((s.getSeller().getUserID()==user.getUserID())
+														    &&(s.getItemState().equals("approved"))
+															&&(s.getAuctionStartDate().compareTo((new Timestamp(new Date().getTime())))>0)))
+															.collect(Collectors.toList());
+			List<Item> actives = items.stream().filter(s->((s.getSeller().getUserID()==user.getUserID())
+															&&(s.getItemState().equals("approved"))
+															&&(s.getAuctionStartDate().compareTo((new Timestamp(new Date().getTime())))<=0)))
+															.collect(Collectors.toList());												
+			pendings.forEach(n->System.out.println(n));
+			request.setAttribute("pendings", pendings);
+			request.setAttribute("upcoming", upcomings);
+			request.setAttribute("active", actives);
 			RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/items.jsp");
 			dis.forward(request, response);
         } 

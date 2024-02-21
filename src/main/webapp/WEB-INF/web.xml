@@ -61,6 +61,10 @@
 		<servlet-class>controller.user.UserProfile</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>itemimage</servlet-name>
+		<servlet-class>controller.user.ItemImage</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>notification</servlet-name>
 		<servlet-class>controller.user.Notification</servlet-class>
 	</servlet>
@@ -104,6 +108,10 @@
 	<servlet-mapping>
 		<servlet-name>LogoutController</servlet-name>
 		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>itemimage</servlet-name>
+		<url-pattern>/itemimage</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UserProfileimg</servlet-name>
