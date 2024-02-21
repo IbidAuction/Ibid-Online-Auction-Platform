@@ -146,6 +146,7 @@ public class AdminDAO implements DAO<Admin> {
                 admin.setRole(rs.getString("role"));
                 admin.setEmail(rs.getString("email"));
                 admin.setPassword(rs.getString("password"));
+                admin.setPicture(rs.getString("picture"));
                 admin.setRegisteredDate(new Date(rs.getDate("registrationDate").getTime()));
             }
         } catch (SQLException e) {
@@ -176,5 +177,20 @@ public class AdminDAO implements DAO<Admin> {
             }
         }
         return ret;
+    }
+
+    public Integer updateprofileImage(Admin ad, String path){
+        Integer Status = 0;
+        try{
+            Connection con = DBService.openConnection();
+            String query = "UPDATE  auction.Admin SET picture = ? WHERE adminID = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, path);
+            ps.setInt(2, ad.getAdminID()); 
+            Status = ps.executeUpdate();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return Status;
     }
 }

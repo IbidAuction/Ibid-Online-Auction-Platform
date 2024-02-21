@@ -28,29 +28,28 @@
             
             <p><%=currAdmin.getFirstName()%> <%=currAdmin.getLastName()%></P> 
         </div>
-        <form action="SearchItems" method="POST">
+        <form action="SearchAdmins" method="POST">
             <div class="search-obj">
                 <div class="category"><span>&#x1F50D;</span></div>
-                <input type="text" placeholder="Write firstword of item..." class="search-input" name = "search-item">
+                <input type="text" placeholder="Write first name of Admin.." class="search-input" name = "search-admin">
                 <button type="submit" class="search-button">Search</button>
             </div>
         </form>
-
         <div class="notification-bell">
             <img src="images/notification-bell.png"/>
         </div>
     </header>
     <nav class="nav">
-        <form action="ItemadminDash" method="POST">
+        <form action="ManagerDash" method="POST">
             <button type="submit" class="dash-button" id="dash-id"><span><img src="images/application (1).png"/></span> <span>Dashboard</span></button>
         </form>
 
-        <form action="ListItems" method="POST">
-            <button type="submit" class="all-users-button" id="all-users-button"><span><img src="images/group.png"/></span><span>All Items</span></button>
+        <form action="ListAdmins" method="POST">
+            <button type="submit" class="all-users-button" id="all-users-button"><span><img src="images/group.png"/></span><span>All Admins</span></button>
         </form>
 
-        <form action="ListPending" method="POST">
-            <button type="submit" class="banned-users" id="banned-id"><span><img src="images/wall-clock (2).png"/></span><span>Pending Items</span></button>
+        <form action="RegisterAdmin" method="POST">
+            <button type="submit" class="banned-users" id="banned-id"><span><img src="images/wall-clock (2).png"/></span><span>Register Admin</span></button>
         </form>
 
         <form action="profile" method="POST">
