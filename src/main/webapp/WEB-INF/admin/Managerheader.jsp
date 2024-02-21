@@ -49,7 +49,7 @@
         </form>
 
         <form action="RegisterAdmin" method="POST">
-            <button type="submit" class="banned-users" id="banned-id"><span><img src="images/wall-clock (2).png"/></span><span>Register Admin</span></button>
+            <button type="submit" class="banned-users" id="banned-id"><span><img src="images/pen (1).png"/></span><span>Register Admin</span></button>
         </form>
 
         <form action="profile" method="POST">

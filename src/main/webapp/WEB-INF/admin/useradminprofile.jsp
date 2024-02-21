@@ -56,7 +56,6 @@
                             <p class="first-name">First Name</p>
                             <input type="text" value="<%=currAdmin.getFirstName()%>" class="first-name-text" name="first-name-text" readonly/>
                         </div>
-
                         <div class="last-name-div">
                             <p class="last-name">Last Name</p>
                             <input type="text" value="<%=currAdmin.getLastName()%>" class="last-name-text" name = "last-name-text" readonly/>
@@ -84,7 +83,6 @@
             const file = event.target.files[0];
             const imagePathElement = document.getElementById('admin-image');
             imagePathElement.src = URL.createObjectURL(file);
-
             document.getElementById('upload-submit').click();
         }
 
