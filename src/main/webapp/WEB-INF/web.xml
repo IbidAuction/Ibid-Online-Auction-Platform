@@ -380,7 +380,35 @@
 		<url-pattern>/DeleteAdmin</url-pattern>
 	</servlet-mapping>
 
-	
+	<servlet>
+		<servlet-name>RegisterAdmin</servlet-name>
+		<servlet-class>controller.admin.RegisterAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterAdmin</servlet-name>
+		<url-pattern>/RegisterAdmin</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>SaveAdmin</servlet-name>
+		<servlet-class>controller.admin.SaveAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveAdmin</servlet-name>
+		<url-pattern>/SaveAdmin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SearchAdmins</servlet-name>
+		<servlet-class>controller.admin.SearchAdmins</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchAdmins</servlet-name>
+		<url-pattern>/SearchAdmins</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
 
 

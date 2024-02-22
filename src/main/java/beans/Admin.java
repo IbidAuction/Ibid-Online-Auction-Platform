@@ -28,13 +28,14 @@ public class Admin {
 		this.password = password;
 		this.registeredDate = registeredDate;
 	}
-	public Admin(String firstName, String lastName, String role, String email, String password) {
+	public Admin(String firstName, String lastName, String role, String email, String password, String picture) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
 		this.email = email;
 		this.password = password;
+		this.picture = picture;
 	}
 	public int getAdminID() {
 		return adminID;

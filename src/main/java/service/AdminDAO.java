@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import beans.Admin;
+import beans.User;
 
 public class AdminDAO implements DAO<Admin> {
 
@@ -18,13 +19,14 @@ public class AdminDAO implements DAO<Admin> {
         int result = 0;
         try {
             Connection con = DBService.openConnection();
-            String insert = "INSERT INTO auction.Admin (firstName, lastName, role, email, password) VALUES (?, ?, ?, ?, ?)";
+            String insert = "INSERT INTO auction.Admin (firstName, lastName, role, email, password, picture) VALUES (?, ?, ?, ?, ?, ?)";
             ps = con.prepareStatement(insert);
             ps.setString(1, admin.getFirstName());
             ps.setString(2, admin.getLastName());
             ps.setString(3, admin.getRole());
             ps.setString(4, admin.getEmail());
             ps.setString(5, admin.getPassword());
+            ps.setString(6, admin.getPicture());
             result = ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -192,5 +194,17 @@ public class AdminDAO implements DAO<Admin> {
             ex.printStackTrace();
         }
         return Status;
+    }
+
+    public List<Admin>  getAdminbyName(String name){
+        AdminDAO curr = new AdminDAO();
+        List<Admin>AdminsWithName = curr.getAll();
+        List<Admin>targetUsers = new ArrayList<Admin>();
+        for (Admin us : AdminsWithName){
+            if (us.getFirstName().equals(name)){
+                targetUsers.add(us);
+            }
+        }
+        return targetUsers;
     }
 }

@@ -26,7 +26,7 @@
             padding-bottom: 100px;
         }
 
-        .activities.p{
+        .par{
             font-size:18px;
         }
 
@@ -61,9 +61,9 @@
             </div>
             <div class="activities">
                 <h2 style="font-weight: bold;">Full Profile</h2>
-                <p>Email : <%=ad.getEmail()%> </p>
-                <p>Role: <%=ad.getRole()%> </p>
-                <p>Registration Date: <%=ad.getRegisteredDate()%></p>
+                <p class="par">Email : <%=ad.getEmail()%> </p>
+                <p class="par">Role: <%=ad.getRole()%> </p>
+                <p class="par">Registration Date: <%=ad.getRegisteredDate()%></p>
             </div>
         </div>
         <script>
