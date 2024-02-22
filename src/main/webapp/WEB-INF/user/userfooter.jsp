@@ -1,32 +1,36 @@
- <footer>
-        <div class="about-us">
-            <div class="details">
-                <p class="footer-title">IBID</p>
-                <div class="footer-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur non, omnis ullam asperiores similique, sequi, libero soluta sunt aliquam voluptatum in atque. Reiciendis at sapiente aperiam autem, assumenda error?</p>
-                </div>
+<footer class="footer">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>About Us</h3>
+              <p>
+                iBid Company is a licensed Ethiopian-based auction company
+                specializing in online auctions of all types. We were
+                established by a highly accredited team of licensed aucti oneers
+                and technologists with extensive experience in local and
+                international marketing trends.
+              </p>
             </div>
-            <div class="details">
-                <p class="footer-title">Quick Links</p>
-                <div class="footer-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur non, omnis ullam asperiores similique, sequi, libero soluta sunt aliquam voluptatum in atque. Reiciendis at sapiente aperiam autem, assumenda error?</p>
-                </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <p>Email: iBidet@gmail.com</p>
+              <p>Phone: +1 123 456 7890</p>
             </div>
-            <div class="details">
-                <p class="footer-title">Latest Post</p>
-                <div class="footer-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur non, omnis ullam asperiores similique, sequi, libero soluta sunt aliquam voluptatum in atque. Reiciendis at sapiente aperiam autem, assumenda error?</p>
-                </div>
+            <div class="footer-section">
+              <h3>Follow Us</h3>
+              <ul class="social-media">
+                <li>
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </li>
+              </ul>
             </div>
-            <div class="details">
-                <p class="footer-title">Contact us</p>
-                <div class="footer-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur non, omnis ullam asperiores similique, sequi, libero soluta sunt aliquam voluptatum in atque. Reiciendis at sapiente aperiam autem, assumenda error?</p>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>mleuwifgewuigibaspjdcweugafps</p>
-            <p>asbuigewfgwpeafjbjcao</p>
-        </div>
-    </footer>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2024 iBid Company. All rights reserved.</p>
+          </div>
+        </footer>

@@ -17,34 +17,94 @@ header{
     margin-bottom: 3rem;
     height: 10rem;
 }
-footer{
-    padding: 3rem 3rem;
-    background-color: rgba(38, 149, 255,0.1);
-}
-.about-us{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    height: fit-content;
-    gap: 3rem;
-}
 
-.footer-title{
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-.footer-content{
-    font-size: 1.4rem;
-    font-weight: 400;
-}
-.footer-content p{
-    line-height: 3rem;
-}
-.copyright{
+.footer {
+    background-color: #4ba0fa;
+    padding: 20px 0;
+    max-height: 250px;
+    color: #fff;
+  }
+  
+  .footer-content {
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
-}
+    max-width: 1200px;
+    max-height: 200px;
+    margin: 0 auto;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin-right: 40px;
+  }
+  
+  .footer-section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .footer-section p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+  }
+  
+  .social-media {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .social-media li {
+    margin-right: 10px;
+  }
+  
+  .social-media a {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .footer {
+    background-color: #007bff;
+    padding: 40px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-size: 50px 50px;
+    animation: ripple 2s linear infinite;
+    opacity: 0.4;
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(2);
+    }
+  }
+  
 nav a{
     background-color: rgb(38, 149, 255);
     text-decoration: none;

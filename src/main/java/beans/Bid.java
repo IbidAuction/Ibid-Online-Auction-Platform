@@ -56,5 +56,11 @@ public class Bid {
 	public void setBidTime(Date bidTime) {
 		this.bidTime = bidTime;
 	}
+	@Override
+	public String toString() {
+		return "Bid [bidId=" + bidId + ", item=" + item + ", bidder=" + bidder + ", bidAmount=" + bidAmount
+				+ ", bidTime=" + bidTime + "]";
+	}
+	
 	
 }

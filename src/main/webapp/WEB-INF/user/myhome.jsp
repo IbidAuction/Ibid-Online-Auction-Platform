@@ -41,26 +41,26 @@
             </div>
             <div class="product-container">
                 <c:forEach var="item" items="${items}">
-                <div class="product-card">
-                    <img src="itemimage?name=${item.itemID}" alt="">
+                <div class="product-card" data-product-id="${item.itemID}" onclick="viewProduct(this)">
+                    <img class="item-image" src="itemimage?name=${item.itemID}" alt="">
                     <div class="time-left">
                         <p class="time-left-title">Time Left</p>
                         <div class="countdown">
                             <div class="count-var">
-                                <p class="time">111</p>
-                                <p class="time-range">days</p>
+                                <p class="time day">"${remaining[item][0]}"</p>
+                                <p class="time-range">day</p>
                             </div>
                             <div class="count-var">
-                                <p class="time">111</p>
-                                <p class="time-range">days</p>
+                                <p class="time hour">"${remaining[item][1]}"</p>
+                                <p class="time-range">hour</p>
                             </div>
                             <div class="count-var">
-                                <p class="time">111</p>
-                                <p class="time-range">days</p>
+                                <p class="time minute">"${remaining[item][2]}"</p>
+                                <p class="time-range">min</p>
                             </div>
                             <div class="count-var">
-                                <p class="time">111</p>
-                                <p class="time-range">days</p>
+                                <p class="time sec">"${remaining[item][3]}"</p>
+                                <p class="time-range">sec</p>
                             </div>
                         </div>
                     </div>
@@ -73,6 +73,63 @@
                     <button class="add-to-wishlist"><img src="images/add-to-wish.png" alt=""></button>
                 </div>
                 </c:forEach>
+
+                <div class="product-modal">
+                    <div class="modal">
+                        <div class="modal-heading">
+                            <h1 class="pname"></h1>
+                            <button id="modalcls">X</button>
+                        </div>
+                        <div class="modalcontent">
+                            <div class="item-detail">
+                                <img class="itemi" src="" alt="">
+                                <p class="desc"></p>
+                            </div>
+                            <div class="more-detail">
+                                <div>
+                                    <h3>BIdders:</h3><p class="bidnum"></p>
+                                </div>
+                                <div>
+                                    <h3>top Bidder:</h3><p class="topbid"></p>
+                                </div>
+                                <div>
+                                    <h3>MinIncrement:</h3><p></p>
+                                </div>
+                                <div>
+                                    <h3>Initial Price:</h3><p></p>
+                                </div>
+                                <div>
+                                    <h3 class="rtime">Remaining Time:</h3>
+                                    <div class="time-left">
+                                        <p class="time-left-title">Time Left</p>
+                                        <div class="countdown">
+                                            <div class="count-var">
+                                                <p class="day"></p>
+                                                <p class="time-range">day</p>
+                                            </div>
+                                            <div class="count-var">
+                                                <p class="hour"></p>
+                                                <p class="time-range">hour</p>
+                                            </div>
+                                            <div class="count-var">
+                                                <p class="minute"></p>
+                                                <p class="time-range">min</p>
+                                            </div>
+                                            <div class="count-var">
+                                                <p class="sec"></p>
+                                                <p class="time-range">sec</p>
+                                            </div>
+                                        </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <input class="amount" type="number" name="amount">
+                        <button class="bidnow">Bid Now</button>
+                    </div>
+                </div>
+
+
             </div>
          </div>
     </div>
