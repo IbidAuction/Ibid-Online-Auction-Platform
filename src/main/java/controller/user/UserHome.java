@@ -33,32 +33,38 @@ public class UserHome extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		User user = (User) sess.getAttribute("user");
-        if( user != null) {
-        	ItemDAO itemDAO = new ItemDAO();
-        	List<Item> items = itemDAO.getAll().stream().filter(s->(s.getSeller().getUserID()!=user.getUserID())).collect(Collectors.toList());
-			HashMap<Item,List<Long>> remainingtime = new HashMap<>();
-           for (Item item : items) {
-				long end = item.getAuctionEndDate().getTime();
-				long now = System.currentTimeMillis();
-				long remain = end-now;
-				List<Long> times = new ArrayList<>();
-				long days = TimeUnit.MILLISECONDS.toDays(remain);
-				long hour = TimeUnit.MILLISECONDS.toHours(remain) % 24;
-				long minute = TimeUnit.MILLISECONDS.toMinutes(remain) % 60;
-				long sec = TimeUnit.MILLISECONDS.toSeconds(remain) % 60;
-				times.add(days);
-				times.add(hour);
-				times.add(minute);
-				times.add(sec);
-				remainingtime.put(item, times);
-		   }
-			request.setAttribute("items", items);
-			request.setAttribute("remaining", remainingtime);
-        	System.out.println(items.size());
-            RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/myhome.jsp");
-            dis.forward(request, response);
-        } else {
-            response.sendRedirect("signin");
-        }
+		try{
+			if( user != null) {
+				ItemDAO itemDAO = new ItemDAO();
+				List<Item> items = itemDAO.getAll().stream().filter(s->(s.getSeller().getUserID()!=user.getUserID())).collect(Collectors.toList());
+				HashMap<Item,List<Long>> remainingtime = new HashMap<>();
+			   for (Item item : items) {
+					long end = item.getAuctionEndDate().getTime();
+					long now = System.currentTimeMillis();
+					long remain = end-now;
+					List<Long> times = new ArrayList<>();
+					long days = TimeUnit.MILLISECONDS.toDays(remain);
+					long hour = TimeUnit.MILLISECONDS.toHours(remain) % 24;
+					long minute = TimeUnit.MILLISECONDS.toMinutes(remain) % 60;
+					long sec = TimeUnit.MILLISECONDS.toSeconds(remain) % 60;
+					times.add(days);
+					times.add(hour);
+					times.add(minute);
+					times.add(sec);
+					remainingtime.put(item, times);
+			   }
+				request.setAttribute("items", items);
+				request.setAttribute("remaining", remainingtime);
+				System.out.println(items.size());
+			} else {
+				response.sendRedirect("signin");
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+        
+		RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/user/myhome.jsp");
+		dis.forward(request, response);
+        
 	}
 }

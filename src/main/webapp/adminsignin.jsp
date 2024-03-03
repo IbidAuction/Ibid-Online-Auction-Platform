@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="css/adminsignin.css">
 </head>
 <body>
-    <div class="header">
-        <p class="company"><img src="images/bid-up-favicon-black.png" class="logo"></p>
-        <button class="buy-button">Buy now</button>
-    </div>
+    <form action="admintohome" method=POST>
+        <div class="header">
+                <p class="company"><img src="images/bid-up-favicon-black.png" class="logo"></p>
+                <button class="buy-button" type="submit">Buy now</button>
+        </div>
+    </form>
 
 
     <div class="Login-div">

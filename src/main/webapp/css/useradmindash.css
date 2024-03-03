@@ -98,8 +98,10 @@ nav{
 .logout-button:hover{
     background-color: #e1f4fa;
 }
+
 .topics{
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .container{
@@ -110,6 +112,31 @@ nav{
     align-items: flex-start;
 }
 
+.dash-analytics {
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 80px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 30px;
+}
+
+.count-design {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.count-design.p{
+    margin-left: 10px;
+}
+
+.count-design:hover { 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35); 
+} 
 
 .graph-container {
     margin-top: 50px;

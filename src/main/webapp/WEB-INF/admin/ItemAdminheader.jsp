@@ -46,7 +46,7 @@
         </form>
 
         <form action="ListItems" method="POST">
-            <button type="submit" class="all-users-button" id="all-users-button"><span><img src="images/group.png"/></span><span>All Items</span></button>
+            <button type="submit" class="all-users-button" id="all-users-button"><span><img src="images/list (2).png"/></span><span>All Items</span></button>
         </form>
 
         <form action="ListPending" method="POST">

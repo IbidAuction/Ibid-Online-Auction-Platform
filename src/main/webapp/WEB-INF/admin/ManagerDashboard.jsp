@@ -51,18 +51,36 @@
                 <h1 style="color: rgb(38, 149, 255);
                             font-weight: bold;
                             display: block;
-                            margin-bottom: 100px;
+                            margin-bottom: 50px;
                             font-family: Arial, Helvetica, sans-serif;">WELCOME !</h1>
 
-                <h2 style="font-weight: bold;
+                <h2 style="color: rgb(38, 149, 255);
+                            font-weight: bold;
                             display: block;
                             margin-bottom: 50px;
-                            font-family: Arial, Helvetica, sans-serif;">USER ANALYTICS: </h2>
+                            font-family: Arial, Helvetica, sans-serif;">ADMIN ANALYTICS:  </h2>
+                
+                <div class = "dash-analytics">
 
-                <p> <%=Total%> Total Admins </p>
-                <p> <%=UserAdmin%> User Admins </p>
-                <p> <%=itemAdmin%> Item Admins <p>
-                <p> <%=manager%> Managers</p>
+                    <div class="count-design">
+                        <img src="images/group (2).png"/>
+                        <p> <%=Total%> Total Admins </p>
+                    </div>
+                    <div class="count-design">
+                        <img src="images/setting (1).png"/>
+                        <p> <%=UserAdmin%> User Admins </p>
+                    </div>
+
+                    <div class = "count-design">
+                        <img src="images/administrator (1).png"/>
+                        <p> <%=itemAdmin%> Item Admins <p>
+                    </div>
+
+                    <div class = "count-design">
+                        <img src="images/project-manager (1).png"/>
+                        <p> <%=manager%> Managers</p>
+                    </div>
+                </div>
             </div>
 
             <div class = "graph-container">

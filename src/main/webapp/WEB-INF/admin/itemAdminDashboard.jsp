@@ -48,17 +48,38 @@
                 <h1 style="color: rgb(38, 149, 255);
                             font-weight: bold;
                             display: block;
-                            margin-bottom: 100px;
+                            margin-bottom: 50px;
                             font-family: Arial, Helvetica, sans-serif;">WELCOME !</h1>
 
-                <h2 style="font-weight: bold;
+                <h2 style="color: rgb(38, 149, 255);
+                            font-weight: bold;
                             display: block;
                             margin-bottom: 50px;
-                            font-family: Arial, Helvetica, sans-serif;">Item ANALYTICS: </h2>
-                <p> <%=Total%> Total Items </p>
-                <p> <%=approved%> Approved Items</p>
-                <p> <%=rejected%> Rejected Items<p>
-                <p> <%=pending%> Pending Items</p>
+                            font-family: Arial, Helvetica, sans-serif;">ITEM ANALYTICS: </h2>
+                
+
+                <div class = "dash-analytics" style="grid-column-gap: 150px;">
+
+                    <div class="count-design" style = "width:200px;">
+                        <img src="images/list (4).png"/>
+                        <p> <%=Total%> Total Items </p>
+                    </div>
+                    <div class="count-design" style = "width:200px;">
+                        <img src="images/verified.png"/>
+                        <p> <%=approved%> Approved Items</p>
+                    </div>
+
+                    <div class = "count-design" style = "width:200px;">
+                        <img src="images/cross (1).png"/>
+                        <p> <%=rejected%> Rejected Items<p>
+                    </div>
+
+                    <div class = "count-design" style = "width:200px;">
+                        <img src="images/wall-clock (4).png"/>
+                        <p> <%=pending%> Pending Items</p>
+                    </div>
+                </div>
+
             </div>
             <div class = "graph-container">
                 <div class="pie-chart">

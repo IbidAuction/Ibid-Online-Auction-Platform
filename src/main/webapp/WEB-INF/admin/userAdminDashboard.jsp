@@ -49,18 +49,38 @@
                 <h1 style="color: rgb(38, 149, 255);
                             font-weight: bold;
                             display: block;
-                            margin-bottom: 100px;
+                            margin-bottom: 50px;
                             font-family: Arial, Helvetica, sans-serif;">WELCOME !</h1>
 
-                <h2 style="font-weight: bold;
+                <h2 style="color: rgb(38, 149, 255);
+                            font-weight: bold;
                             display: block;
                             margin-bottom: 50px;
                             font-family: Arial, Helvetica, sans-serif;">USER ANALYTICS: </h2>
 
-                <p> <%=Total%> Total Users </p>
-                <p> <%=Active%> Active Users </p>
-                <p> <%=banned%> Banned Users <p>
-                <p> <%=suspended%> Suspended Users</p>
+
+                <div class = "dash-analytics">
+
+                    <div class="count-design">
+                        <img src="images/group (2).png"/>
+                        <p> <%=Total%> Total Users </p>
+                    </div>
+                    <div class="count-design">
+                        <img src="images/setting (1).png"/>
+                        <p> <%=Active%> Active Users </p>
+                    </div>
+
+                    <div class = "count-design">
+                        <img src="images/waiting (1).png"/>
+                        <p> <%=suspended%> Suspended Users</p>
+                    </div>
+
+                    <div class = "count-design">
+                        <img src="images/ban-user (2).png"/>
+                        <p> <%=banned%> Banned Users <p>
+                    </div>
+                </div>
+
             </div>
             <div class = "graph-container">
                 <div class="pie-chart">

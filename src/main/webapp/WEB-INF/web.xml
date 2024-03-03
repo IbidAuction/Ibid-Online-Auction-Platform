@@ -10,11 +10,11 @@
 	</context-param>
 	<context-param>
 	        <param-name>db.user</param-name>
-	        <param-value>firomsa</param-value>
+	        <param-value>samuel</param-value>
 	</context-param>
 	<context-param>
 	        <param-name>db.password</param-name>
-	        <param-value>12345</param-value>
+	        <param-value>123456789</param-value>
 	</context-param>
 
 	<welcome-file-list>
@@ -406,6 +406,15 @@
 	<servlet-mapping>
 		<servlet-name>SearchAdmins</servlet-name>
 		<url-pattern>/SearchAdmins</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>admintohome</servlet-name>
+		<servlet-class>controller.admin.admintohome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admintohome</servlet-name>
+		<url-pattern>/admintohome</url-pattern>
 	</servlet-mapping>
 
 
